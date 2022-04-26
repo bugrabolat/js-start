@@ -1,78 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>İnput özellikleri</title>
-</head>
-<body>
-    <input type="button">button</input>
-    <br>
-    <br>
-    <br>
-    <input type="checkbox">checkbox</input>
-    <br>
-    <br>
-    <br>
-    <input type="color">color</input>
-    <br>
-    <br>
-    <br>
-    <input type="date">date</input>
-    <br>
-    <br><br>
-    <input type="datetime">datetime</input>
-    <br>
-    <br>
-    <br>
-    <input type="datetime-local">datetime-local</input>
-    <br>
-    <br>
-    <br>
-    <input type="email">email</input>
-    <br>
-    <br><br>
-    <input type="file">file</input>
-    <br>
-    <br>
-    <br>
-    <input type="hidden">hidden</input>
-    <br>
-    <br>
-    <br>
-    <input type="image">image</input>
-    <br>
-    <br>
-    <br>
-    <input type="month">month</input>
-    <br>
-    <input type="number">number</input>
-    <br>
-    <input type="password">password</input>
-    <br>
-    <input type="radio">radio</input>
-    <br>
-    <input type="range">range</input>
-    <br>
-    <input type="reset">reset</input>
-    <br>
-    <input type="search">search</input>
-    <br>
-    <input type="submit">submit</input>
-    <br>
-    <input type="tel">tel</input>
-    <br>
-    <input type="text">text</input>
-    <br>
-    <input type="time">time</input>
-    <br>
-    <input type="url">url</input>
-    <br>
-    <input type="week">week</input>
-    <br>
+  </head>
+  <body>
+    Örnekler Input type: button Örnek
 
+    <input type="button" value="Buton" disabled />
+    <br />
+    <br />
+    <br />
 
+    Input type: checkbox Örnek
 
-</body>
+    <input
+      type="checkbox"
+      name="araclar"
+      onchange="checkbox()"
+      id="chbox1"
+    />
+    Bisiklet
+    <input
+      type="checkbox"
+      name="araclar"
+      id="chbox2"
+      onchange="checkbox(value)"  
+    />
+    Araba
+    <p id="chboxtext"></p>
+    <br />
+    <br />
+    <br />
+
+    Input type: color Örnek Sevdiğiniz rengi seçin:
+    <input type="color" name="renkler" accesskey="x" /> <br /><br /><br />
+
+    Input type: date Örnek Doğum tarihiniz: <input type="date" name="dgunu" />
+    <br /><br /><br />
+
+    Input type: datetime Örnek Tarih seçin(tarih ve zaman):
+    <input type="datetime" name="dgunudt" /> <br /><br /><br />
+
+    Input type: datetime-local Örnek Tarih seçin(tarih ve zaman):
+    <input type="datetime-local" name="dgunudtl" /> <br /><br /><br />
+
+    Input type: email Örnek E-posta:
+    <input type="email" name="eposta" autocomplete="on" /> <br /><br /><br />
+
+    Input type: file Örnek Bir dosya seçin:
+    <input type="file" name="resim" accept="image/*" /> <br /><br /><br />
+
+    Input type: hidden Örnek
+
+    <input type="hidden" name="ulke" value="Türkiye" />
+    <br /><br /><br />
+
+    Input type: image Örnek
+
+    <input type="image" src="gonder.png" alt="Gönder" width="30" height="30" />
+    <br /><br /><br />
+
+    Input type: month Örnek Doğumgünün(ay ve yıl):
+    <input type="month" name="dgunuay" />
+
+    <br /><br /><br />
+
+    Input type: number Örnek Seçim(1 ile 5 arası):
+    <input type="number" name="secim" min="1" max="20" /> <br /><br /><br />
+
+    Input type: password Örnek
+
+    <input
+      type="password"
+      name="sifre"
+      id="password"
+      onkeyup="inputPasswordOnChange()"
+    />
+    <p id="passwordtext"></p>
+    <br /><br /><br />
+
+    Input type: radio Örnek
+
+    <input type="radio" name="cinsiyet" value="bay"  onclick="radio(value)" id="radio1"/> Bay
+
+    <input type="radio" name="cinsiyet" value="bayan"  onclick="radio(value)" id="radio2"/> Bayan
+    <br />
+    <p id="radiotext"></p>
+    <br /><br /><br />
+
+    Input type: range Örnek
+
+    <input type="range" id="range" name="secim" min="1" max="10" onmouseup="drag()" onchange=""/>
+
+    <br />
+    <p id="rangep">5</p>
+    <br /><br /><br />
+
+    Input type: reset Örnek
+
+    <input type="reset" />
+    <br /><br /><br />
+
+    Input type: search Örnek
+
+    <input type="search" name="googlearama" autocomplete="name"  onselect="search()" id="search"/>
+    <p id="searchtext"></p>
+    <br /><br /><br />
+
+    Input type: submit Örnek
+
+    <input type="submit" />
+    <br /><br /><br />
+
+    Input type: tel Örnek Telefon Numaranız:
+    <input type="tel" name="telno" size="10" maxlength="10" />
+    <br /><br /><br />
+
+    Input type: text Örnek İsminiz:
+    <input type="text" name="fisim" autocomplete="on" dir="rtl" />
+
+    Soyisminiz: <input type="text" name="fsisim" value="can" readonly />
+    <br /><br /><br />
+
+    Input type: time Örnek Zaman Seçin: <input type="time" name="zaman" />
+    <br /><br /><br />
+
+    Input type: url Örnek Favori sayfanızı ekleyin:
+    <input type="url" name="favori" autofocus /> <br /><br /><br />
+
+    Input type: week Örnek Hafta Seçin: <input type="week" name="hafta" />
+
+    <script>
+      function inputPasswordOnChange() {
+        var password = document.getElementById("password").value;
+        var passwordtext = (document.getElementById("passwordtext").innerHTML =
+          "oninput eventi :" + password);
+      }
+      function checkbox(value) {
+          console.log(value)
+        var checkbox1 = document.getElementById("chbox1").value;
+        var checkbox2 = document.getElementById("chbox2").value;
+        var chboxtext = document.getElementById("chboxtext");
+        if(value=="Bisiklet"){
+        chboxtext.innerHTML=checkbox1;
+        }else if(value=="Araba"){
+        chboxtext.innerHTML=checkbox2;
+        }
+        
+      }
+      function drag() {
+          var range = document.getElementById("range").value;
+          var rangep = document.getElementById("rangep").innerHTML= "onmouseup eventi :"+range;
+      }
+      function radio(value){
+         
+          var radiotext = document.getElementById("radiotext");
+          var radio1 = document.getElementById("radio1").value;
+          var radio2 = document.getElementById("radio2").value;
+          if(value =="bay"){
+          radiotext.innerHTML=radio1
+          }else if (value=="bayan"){
+          radiotext.innerHTML=radio2
+          }
+      }
+      function search(){
+          var search = document.getElementById("search").value;
+          var searchtext = document.getElementById("searchtext").innerHTML=search;
+      }
+    </script>
+    
+  </body>
 </html>
