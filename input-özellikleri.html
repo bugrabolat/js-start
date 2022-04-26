@@ -93,10 +93,11 @@
 
     Input type: range Örnek
 
-    <input type="range" id="range" name="secim" min="1" max="10" onmouseup="drag()" onchange=""/>
+    <input type="range" id="range" name="secim" min="1" max="20" onmouseup="mouseup()" onmousemove="drag()" />
 
     <br />
-    <p id="rangep">5</p>
+    <p id="rangep"></p>
+    <p id="rangep2"></p>
     <br /><br /><br />
 
     Input type: reset Örnek
@@ -153,7 +154,10 @@
       }
       function drag() {
           var range = document.getElementById("range").value;
-          var rangep = document.getElementById("rangep").innerHTML= "onmouseup eventi :"+range;
+          var rangep = document.getElementById("rangep").innerHTML= "onChange :"+range;
+      }
+      function mouseup(){
+         var rangep2 = document.getElementById("rangep2").innerHTML="mouseup çalıştı";
       }
       function radio(value){
          
