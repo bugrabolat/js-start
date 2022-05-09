@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="number"
+      max="100"
+      min="0"
+      step="0.5"
+      onblur="inputOnMouseMove(this,'a')"
+      id="number1"
+    />
+    <p id="rangetext1"></p>
+    <input
+      type="number"
+      max="100"
+      min="0"
+      step="0.5"
+      onblur="inputOnMouseMove(this,'b')"
+      id="number2"
+    />
+    <p id="rangetext2"></p>
+    <input
+      type="number"
+      max="100"
+      min="0"
+      step="0.5"
+      onblur="inputOnMouseMove(this,'c')"
+    />
+    <p id="rangetext3"></p>
+    <input
+      type="number"
+      max="100"
+      min="0"
+      step="0.5"
+      onblur="inputOnMouseMove(this,'d')"
+    />
+    <p id="rangetext4"></p>
+    <input
+      type="number"
+      max="100"
+      min="0"
+      step="0.5"
+      onblur="inputOnMouseMove(this,'e')"
+    />
+    <p id="rangetext5"></p>
+    <input type="submit" onclick="inputButtonOnClick()" />
+    <p id="buttonp"></p>
+
+    <script>
+      function inputButtonOnClick() {
+        var buttonp = document.getElementById("buttonp");
+        var range1 = document.getElementById("number1").value;
+        buttonp.innerHTML = range1;
+      }
+
+    //   function inputOnMouseMove(element) {
+    //     var rangetext1 = document.getElementById("rangetext1");
+    //     var rangetext2 = document.getElementById("rangetext2");
+    //     var rangetext3 = document.getElementById("rangetext3");
+    //     var rangetext4 = document.getElementById("rangetext4");
+    //     var rangetext5 = document.getElementById("rangetext5");
+    //     if (element.value <= 100 && element.value >= 0) {
+    //         switch (x) {
+    //            case 'a':
+    //                rangetext1.innerHTML=element.value;
+    //                break;
+    //        case 'b' :
+    //            rangetext2.innerHTML=element.value;
+    //             break;
+    //            case 'c' :
+    //            rangetext3.innerHTML=element.value;
+    //            break;
+    //            case 'd' :
+    //            rangetext4.innerHTML=element.value;
+    //            break;
+    //            case 'e' :
+    //            rangetext5.innerHTML=element.value;
+    //             break;
+
+    //        }
+    //     }
+    //   }
+
+       function inputOnMouseMove(element,x){
+           var rangetext1 = document.getElementById("rangetext1");
+           var rangetext2 = document.getElementById("rangetext2");
+           var rangetext3 = document.getElementById("rangetext3");
+           var rangetext4 = document.getElementById("rangetext4");
+           var rangetext5 = document.getElementById("rangetext5");
+           switch (x) {
+               case 'a':
+                   rangetext1.innerHTML=element.value;
+                 break;
+           case 'b' :
+               rangetext2.innerHTML=element.value;
+                break;
+               case 'c' :
+               rangetext3.innerHTML=element.value;
+               break;
+               case 'd' :
+               rangetext4.innerHTML=element.value;
+               break;
+               case 'e' :
+               rangetext5.innerHTML=element.value;
+                break;
+
+           }
+       }
+    </script>
+  </body>
+</html>
