@@ -1,0 +1,43 @@
+.container{
+    width: 500px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.screen{
+    width: 250px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.screen input{
+    margin-left: auto;
+    margin-right: auto;  
+    background-color: rgba(177, 174, 174, 0.685);
+    width: 195px;
+    height: 75px;
+    font-size: 30px;
+    text-align: right;
+
+}
+.buttons{
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    margin-top: 10px;
+}
+button{
+    width: 50px;
+    height: 50px;
+    margin-right: -3px;
+    background-color: rgb(218, 213, 213);
+    border-block-end-style: unset;
+    
+}
+.orange{
+    background-color: orange;
+}
+.zero{
+    width: 101px;
+}

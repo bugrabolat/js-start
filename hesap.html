@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="hesap.css" />
+    <title>Hesap Makinesi</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen">
+        <input type="text" id="screen" value="0" disabled />
+      </div>
+      <div class="buttons">
+        <button id="clear" onclick="onClickClearButton()">AC</button>
+        <button id="positive" onclick="onClickPositiveButton()">+/-</button>
+        <button id="sepelator1">%</button>
+        <button class="orange"onclick="onClickSepelator(this,'/')" value="/">/</button>
+        <button onclick="onClickButton(this,'7')" value="7" id="yedi">7</button>
+        <button value="8" onclick="onClickButton(this,'8')" class="number">8</button>
+        <button value="9" onclick="onClickButton(this,'9')" class="number">9</button>
+        <button class="orange"onclick="onClickSepelator(this,'*')" value="*">x</button>
+        <button value="4" onclick="onClickButton(this,'4')" class="number">4</button>
+        <button value="5" class="number" onclick="onClickButton(this,'5')">5</button>
+        <button value="6" class="number" onclick="onClickButton(this,'6')">6</button>
+        <button class="orange"onclick="onClickSepelator(this,'-')" value="-">-</button>
+        <button value="1" class="number" onclick="onClickButton(this,'1')">1</button>
+        <button value="2" class="number" onclick="onClickButton(this,'2')">2</button>
+        <button value="3" class="number" onclick="onClickButton(this,'3')">3</button>
+        <button class="orange"onclick="onClickSepelator(this,'+')" value="+">+</button>
+        <button class="zero" value="0" onclick="onClickButton(this,'0')">0</button>
+        <button>,</button>
+        <button class="orange" onclick="hesapla()">=</button>
+      </div>
+    </div>
+    <script src="hesap.js"></script>
+  </body>
+</html>
