@@ -1,12 +1,13 @@
 var screen = document.getElementById("screen");
-var first = " ";
-var second = " ";
+var first = '';
+var second = '';
 var selectedOpr = " ";
+var sonuc = '';
 
 
 function onClickButton(element, x) {
-  if(screen.value == 0){
-    screen.value ="";
+  if (screen.value == 0) {
+    screen.value = "";
   }
   switch (x) {
     case '0':
@@ -40,28 +41,59 @@ function onClickButton(element, x) {
       screen.value += element.value;
       break;
   }
-}
-function onClickClearButton() {
-  screen.value = 0;
-}
-function onClickPositiveButton() {
-  if (screen.value) {
-    screen.value
+  if (selectedOpr == " " || first == '') {
+    first += element.value;
+  } else if (selectedOpr != " " || first !== '') {
+    second += element.value;
+  }
+  if(first ==''){
+    first += element.value;
   }
 }
-function onClickSepelator(element,y) {
- switch (y) {
-   case "+":
-    selectedOpr += element.value
-     break;
-     case "-":
-      selectedOpr += element.value
-     break;
-     case "*":
-      selectedOpr += element.value
-     break;
-     case "/":
-      selectedOpr += element.value
-     break;
- }
+
+function onClickClearButton() {
+  screen.value = " ";
+  first = "";
+  selectedOpr = " ";
+  second = '';
+
+}
+
+function onClickPositiveButton() {
+
+}
+
+function onClickSepelator(element, y) {
+  switch (y) {
+    case "+":
+      selectedOpr = element.value;
+      break;
+    case "-":
+      selectedOpr = element.value;
+      break;
+    case "*":
+      selectedOpr = element.value;
+      break;
+    case "/":
+      selectedOpr = element.value;
+      break;
+  }
+  screen.value = " ";
+}
+
+function hesapla() {
+  if (selectedOpr == "+") {
+    sonuc = Number(first) + Number(second);
+  }else if (selectedOpr == "-") {
+    sonuc = Number(first) - Number(second);
+  }else if (selectedOpr == "*") {
+    sonuc = Number(first) * Number(second);
+  }else if (selectedOpr == "/") {
+    sonuc = Number(first) / Number(second);
+  }
+
+  screen.value = sonuc;
+  console.log(first+second);
+  console.log(first);
+
 }
