@@ -15,7 +15,7 @@
       <div class="buttons">
         <button id="clear" onclick="onClickClearButton()">AC</button>
         <button id="positive" onclick="onClickPositiveButton()">+/-</button>
-        <button id="sepelator1">%</button>
+        <button id="sepelator1"onclick="yuzde()" value="%">%</button>
         <button class="orange"onclick="onClickSepelator(this,'/')" value="/">/</button>
         <button onclick="onClickButton(this,'7')" value="7" id="yedi">7</button>
         <button value="8" onclick="onClickButton(this,'8')" class="number">8</button>
@@ -30,7 +30,7 @@
         <button value="3" class="number" onclick="onClickButton(this,'3')">3</button>
         <button class="orange"onclick="onClickSepelator(this,'+')" value="+">+</button>
         <button class="zero" value="0" onclick="onClickButton(this,'0')">0</button>
-        <button>,</button>
+        <button value="."onclick="onClickButton(this,'.')">.</button>
         <button class="orange" onclick="hesapla()">=</button>
       </div>
     </div>
