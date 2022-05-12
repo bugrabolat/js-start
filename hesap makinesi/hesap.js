@@ -44,9 +44,9 @@ function onClickButton(element, x) {
       screen.value += element.value;
       break;
   }
-  if (selectedOpr == " " && first == '') {
+  if (selectedOpr == " ") {
     first += element.value;
-  }else if(selectedOpr !== " " && first !== ''){
+  } else if (selectedOpr !== " " && first !== '') {
     second += element.value
   }
 }
@@ -78,12 +78,9 @@ function onClickSepelator(element, y) {
       selectedOpr = element.value;
       break;
   }
-  step = true
-  if(step === true){
-    hesapla();
-  }
+
   screen.value += element.value;
-  
+
 }
 function onClickPositiveButton() {
   if (Number(first) > 0 && selectedOpr == " ") {
@@ -115,13 +112,12 @@ function hesapla() {
     sonuc = Number(first) / Number(second);
   };
 
-   first = sonuc;
-   second = '';
+
+  first = sonuc
 
 
   screen.value = sonuc;
-  console.log(first+selectedOpr+second);
 
 
-
+  second = '';
 }
