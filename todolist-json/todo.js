@@ -33,9 +33,18 @@ function onClickAddButton() {
 
 
     todos = JSON.parse(localStorage.getItem("todos"));
-    todos.push(todo);
+    todos.push(input.value);
     localStorage.setItem("todos", JSON.stringify(todos));
 
     input.value = "";
 }
 
+function addTodo(todo) {
+    var todoList = getTodo();
+    todoList.push(todo);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+function getTodo() {
+    return JSON.parse(localStorage.getItem("todoList"));
+}
