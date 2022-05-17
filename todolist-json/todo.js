@@ -1,12 +1,13 @@
 var input = document.getElementById("todo-input");
 var addtodo = document.getElementById("add-button");
 
-var todos = JSON.parse(localStorage.getItem("todos"));
 
-
+var todolist = localStorage.getItem("todolist");
+localStorage.setItem("todolist",JSON.stringify([]))
+ 
 function onClickAddButton() {
+    if(input.value !== ""){
     var todo = input.value.trim();
-
     var li = document.createElement("li")
     li.style.textDecoration = "none";
     li.style.marginBottom = "10px";
@@ -27,24 +28,20 @@ function onClickAddButton() {
         document.getElementById("list").removeChild(li);
     }
 
-    li.innerHTML = input.value.trim();
+    li.innerHTML = todo;
     li.appendChild(delbutton);
     document.getElementById("list").appendChild(li);
 
-
-    todos = JSON.parse(localStorage.getItem("todos"));
-    todos.push(input.value);
-    localStorage.setItem("todos", JSON.stringify(todos));
+   var todos = {
+       text:todo
+   }
+   var todolist = JSON.parse(localStorage.getItem("todolist"));
+   todolist.push(todos);
+   localStorage.setItem("todolist",JSON.stringify(todolist));
 
     input.value = "";
+}else{
+    alert("lütfen bir todo giriniz");
+}
 }
 
-function addTodo(todo) {
-    var todoList = getTodo();
-    todoList.push(todo);
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-}
-
-function getTodo() {
-    return JSON.parse(localStorage.getItem("todoList"));
-}
