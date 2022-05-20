@@ -1,52 +1,66 @@
 var input = document.getElementById("todo-input");
 var addtodo = document.getElementById("add-button");
 
-var todolist = JSON.parse(localStorage.getItem("todolist"));
+var todoList = localStorage.getItem("todoList");
 
-if (todolist !== null && todolist !== "") {
-    todolist = JSON.parse(todolist);
-    todolist.forEach(element => {
+if (todoList !== null && todoList !== "") {
+    todoList = JSON.parse(todoList);
+    todoList.forEach(el => {
+        console.log(el);
         var li = document.createElement("li");
         li.style.textDecoration = "none";
         li.style.marginBottom = "10px";
         li.className = "list-group-item list-group-item-secondary";
+        if (el.status) {
+            li.style.textDecoration = "line-through";
+                li.style.opacity = 0.5;
+        }
+        else{
+            li.style.textDecoration = "none";
+                li.style.opacity = 1;
+        }
         li.onclick = function () {
             if (li.style.textDecoration != "none") {
                 li.style.textDecoration = "none";
                 li.style.opacity = 1;
-                saveToLocal();
+                el.status = false;
+                saveTodoList();
             } else {
                 li.style.textDecoration = "line-through";
                 li.style.opacity = 0.5;
-                saveToLocal();
-            }
+                el.status = true;
+                saveTodoList();
+            }   
         }
         var delbutton = document.createElement("button");
         delbutton.className = "btn-close";
         delbutton.style.float = "right";
         delbutton.onclick = function () {
             document.getElementById("list").removeChild(li);
+            removeTodoItem(el.id);
         }
 
-        li.innerHTML = element.text;
+        li.innerHTML = el.text;
         li.appendChild(delbutton);
         document.getElementById("list").appendChild(li);
     });
-} else {
-todolist = [];
+    console.log("if içi");
+} else{
+    todoList = [];
+    console.log("else içi");
 }
 
-
+console.log(todoList);
 
 function onClickAddButton() {
     if (input.value !== "") {
-        todolist.push({
-            id: todolist.length,
+        todoList.push({
+            id: todoList.length,
             text: "",
             status: false
         });
 
-        var element = todolist[todolist.length -1];
+        var el = todoList[todoList.length - 1];
 
         var todo = input.value.trim();
         var li = document.createElement("li");
@@ -57,9 +71,13 @@ function onClickAddButton() {
             if (li.style.textDecoration != "none") {
                 li.style.textDecoration = "none";
                 li.style.opacity = 1;
+                el.status = false;
+                saveTodoList();
             } else {
                 li.style.textDecoration = "line-through";
                 li.style.opacity = 0.5;
+                el.status = true;
+                saveTodoList();
             }
         }
         var delbutton = document.createElement("button");
@@ -67,22 +85,34 @@ function onClickAddButton() {
         delbutton.style.float = "right";
         delbutton.onclick = function () {
             document.getElementById("list").removeChild(li);
+            removeTodoItem(el.id);
         }
 
         li.innerHTML = todo;
-        element.text = todo;
+        el.text = todo;
         li.appendChild(delbutton);
         document.getElementById("list").appendChild(li);
 
-        saveToLocal();
+        
 
+        saveTodoList();
+
+        console.log(todoList);
 
         input.value = "";
+        input.focus();
     } else {
         alert("lütfen bir todo giriniz");
     }
 }
 
-function saveToLocal(){
-    localStorage.setItem("todolist",JSON.stringify(todolist));
+function saveTodoList(){
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+function removeTodoItem(id) {
+    var index = todoList.findIndex(function (el) {
+        return el.id === id;
+    });
+    todoList.splice(index, 1);
 }
