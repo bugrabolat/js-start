@@ -1,0 +1,40 @@
+
+nav{
+    margin-top: 30px;
+}
+
+#nav-btn{
+margin-left: 300px;
+}
+
+.slider{
+    margin-top: 30px;
+}
+.catalog{
+    margin-top: 30px;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: darkgray;
+}
+.card-img-top{
+    width: 50%;
+    height: 50%;
+}
+.card{
+    align-items: center;
+}
+h5{
+    text-align: center;
+}
+.footer{
+    background-color: rgb(24, 24, 24);
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
