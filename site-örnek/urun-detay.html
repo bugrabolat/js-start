@@ -16,6 +16,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="index.css" />
     <title>Document</title>
     <style>
@@ -23,21 +24,27 @@
         margin-top: 50px;
         margin-bottom: 50px;
       }
+
       .left-barside img {
-        width: 400px;
-        height: 500px;
-        margin-left: 300px;
-        margin-top: 50px;
+        width: 300px;
+        height: 350px;
+        margin-left: 200px;
+        margin-top: 70px;
       }
       .right-barside {
         width: 500px;
         height: 300px;
-        margin-right: 100px;
+        margin-right: 300px;
+        margin-left: 50px;
         margin-top: 100px;
         text-align: center;
       }
       #sepet-btn {
         margin-bottom: 30px;
+        margin-top: 30px;
+        width: 200px;
+        position: relative;
+        left: 10px;
       }
       #seri-no {
         margin-bottom: 30px;
@@ -46,26 +53,198 @@
         margin-top: 30px;
         font-size: 20px;
         color: green;
+        text-align: left;
+      }
+      .accordion {
+        position: relative;
+        bottom: 30px;
+        right: 30px;
       }
       .accordion-body {
         text-align: left;
       }
       svg {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         margin-bottom: 30px;
         margin-left: 10px;
       }
-      svg:hover{
-          background-color: gray;
+      svg:hover {
+        background-color: gray;
+        border-radius: 70%;
       }
-      #product-info{
-          height: 300px;
+      #product-info {
+        height: 300px;
+        padding: 10px;
       }
-      .product-name{
-          margin-left: -150px;
+      #fav-btn {
+        position: absolute;
+        top: 10px;
+        right: 30px;
       }
-    
+      #stok span {
+        color: green;
+        font-weight: bolder;
+      }
+      .share-btn {
+        position: relative;
+        left: 250px;
+        bottom: 20px;
+      }
+      #plus-btn {
+        position: relative;
+        left: 20px;
+        font-weight: bold;
+        font-size: large;
+      }
+      #reduce-btn {
+        position: relative;
+        right: 20px;
+        font-weight: bold;
+        font-size: large;
+      }
+      .adet {
+        position: relative;
+        right: 50px;
+        bottom: 20px;
+      }
+      .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+
+      .rating > input {
+        display: none;
+      }
+
+      .rating > label {
+        position: relative;
+        width: 1em;
+        font-size: 20px;
+        color: #ffd600;
+        cursor: pointer;
+      }
+
+      .rating > label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0;
+      }
+
+      .rating > label:hover:before,
+      .rating > label:hover ~ label:before {
+        opacity: 1 !important;
+      }
+
+      .rating > input:checked ~ label:before {
+        opacity: 1;
+      }
+
+      .rating:hover > input:checked ~ label:before {
+        opacity: 0.4;
+      }
+      .rating a {
+        position: relative;
+        top: 10px;
+        right: 5px;
+        font-weight: bold;
+      }
+      .mini-photos {
+        margin-left: 130px;
+        margin-right: auto;
+        text-align: left;
+      }
+      .mini-photos a img {
+        width: 100px;
+        height: 100px;
+        position: relative;
+      }
+      #mini-photo1 {
+        margin-right: 0;
+        margin-left: 350px;
+        margin-top: 10px;
+      }
+      #mini-photo2 {
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+      .carousel-inner {
+        width: 500px;
+        height: 500px;
+        margin-top: 70px;
+        margin-left: 250px;
+      }
+      .comment {
+        margin-top: 150px;
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+      h6 {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: darkgoldenrod;
+      }
+      .first-comment {
+        width: 100%;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .first-comment h5 {
+        text-align: left;
+      }
+      .first-comment p {
+        text-align: left;
+      }
+      li {
+        list-style: none;
+      }
+      small{
+        float: left;
+      }
+      .offcanvas-body img {
+        width: 100px;
+        height: 100px;
+      }
+      .offcanvas-body p {
+        margin: 1px;
+        margin-bottom: 5px;
+      }
+      .offcanvas-body h5{
+        margin-top: 10px;
+      }
+      .offcanvas-body .adet{
+        margin-top: 20px;
+      }
+      #basket-itemprice{
+        color: green;
+        position: relative;
+        left: 25px;
+        bottom: 25px;
+      }
+      .basket-items{
+        margin-bottom: 20px;
+      }
+      .close-button{
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #fff;
+        position: relative;
+        top: 30px;
+        left: 5px;
+        box-shadow: 0 2px 6px 0 rgb(0 0 0 / 40%);
+        background: white;
+      }
+      .close-button p {
+        font-size: 13px;
+        position: relative;
+        bottom: 5px;
+        right: 3px;
+        font-weight: 500;
+      }
     </style>
   </head>
   <body>
@@ -114,6 +293,13 @@
                 <a class="nav-link" href="#">Hakkımızda</a>
               </li>
             </ul>
+            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                2
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"
@@ -128,68 +314,243 @@
           </div>
         </div>
       </nav>
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"><b>Sepetim</b></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div><hr>
+        <div class="offcanvas-body">
+          <div class="basket-items row">
+          <div class="col-4">
+            <button class="close-button"><p>X</p></button>
+          <img
+              src="img/şapka.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo2"
+          />
+        </div>
+          <div class="col-6">
+          <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+          <div class="basket-info">
+            <span>1X</span>
+            <p id="basket-itemprice">1.199,00 TL</p>
+          </div>
+        </div>
+      </div>
+      <div class="basket-items row">
+        <div class="col-4">
+          <button class="close-button"><p>X</p></button>
+        <img
+            src="img/elbise-resmi.jpg"
+            class="img-thumbnail"
+            alt="..."
+            id="mini-photo2"
+        />
+      </div>
+        <div class="col-6">
+        <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+        <div class="basket-info">
+          <span>1X</span>
+          <p id="basket-itemprice">1.199,00 TL</p>
+        </div>
+      </div>
+    </div>
+    <div class="basket-buttons">
+      <button class="btn btn-secondary">Sepeti Temizle</button>
+      <button class="btn btn-success">Alışverişi Tamamla</button>
+    </div>
+    </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2">
-      <div class="left-barside col">  
-        <img src="img/elbise-resmi.jpg" alt="" />
+      <div class="left-barside col">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel carousel-dark slide"
+          data-bs-ride="true"
+        >
+          <div
+            class="carousel-indicators"
+            style="position: relative; top: 550px; left: 120px"
+          >
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+          </div>
+          <div class="carousel-inner card" style="width: 700px; height: 500px">
+            <div class="carousel-item active">
+              <img src="img/şapka.jpg" class="img-thumbnail" alt="..." />
+            </div>
+            <div class="carousel-item active">
+              <img src="img/elbise-resmi.jpg" class="img-thumbnail" alt="..." />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide="prev"
+            style="margin-left: 210px; margin-top: 150px"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+            style="margin-right: -50px; margin-top: 150px"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="mini-photos">
+          <a href=""
+            ><img
+              src="img/elbise-resmi.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo1"
+          /></a>
+          <a href=""
+            ><img
+              src="img/şapka.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo2"
+          /></a>
+        </div>
       </div>
       <div class="right-barside col">
-        <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link active" style="color: black; margin-right: -30px;" aria-current="page" href="#">Ana sayfa ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: black; margin-right: -30px;" href="#">Ürünler ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: black; margin-right: -30px;" href="#">Elbise</a>
-            </li>
-          </ul>
-          <div class="card" id="product-info">
-        <div class="product-name">
-        <h5>İşlemeli Beyaz Mini Elbise</h5>
-        <p id="seri-no">v1234-123</p>
-    </div>
-        <div class="type">
-        <input
-          type="radio"
-          class="btn-check"
-          name="options"
-          id="option1"
-          autocomplete="off"
-        />
-        <label class="btn btn-dark" for="option1">36</label>
-        <input
-          type="radio"
-          class="btn-check"
-          name="options"
-          id="option2"
-          autocomplete="off"
-        />
-        <label class="btn btn-dark" for="option2">37</label>
-        <input
-          type="radio"
-          class="btn-check"
-          name="options"
-          id="option3"
-          autocomplete="off"
-        />
-        <label class="btn btn-dark" for="option3">38</label>
-    </div>
-    <p id="price"><b>1.199,00 TL</b></p>
-    <div class="buy">
-        
-    
-        <button class="btn btn-dark" id="sepet-btn">Sepete Ekle</button>
-        <a href="">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path
-              d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
-            />
-          </svg>
-        </a>
-    </div>
-    </div>
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Ana sayfa</a></li>
+            <li class="breadcrumb-item"><a href="urunler.html">Ürünler</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Etek</li>
+          </ol>
+        </nav>
+        <div class="card" id="product-info">
+          <div class="product-name">
+            <h5>İşlemeli Beyaz Mini Elbise</h5>
+            <p id="seri-no">v1234-123</p>
+            <p id="stok">Stok Durumu: <span>Var</span></p>
+          </div>
+          <div class="type">
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check btn-dark"
+                name="btnradio"
+                id="btnradio1"
+                autocomplete="off"
+                checked
+              />
+              <label class="btn btn-outline-dark" for="btnradio1">36</label>
+              <br />
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio2"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark" for="btnradio2">38</label>
+              <br />
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio3"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-dark" for="btnradio3">40</label>
+            </div>
+          </div>
+          <p id="price"><b>1.199,00 TL</b></p>
+          <div class="rating">
+            <input type="radio" name="rating" value="5" id="5" /><label for="5"
+              >☆</label
+            >
+            <input type="radio" name="rating" value="4" id="4" /><label for="4"
+              >☆</label
+            >
+            <input type="radio" name="rating" value="3" id="3" /><label for="3"
+              >☆</label
+            >
+            <input type="radio" name="rating" value="2" id="2" /><label for="2"
+              >☆</label
+            >
+            <input type="radio" name="rating" value="1" id="1" /><label for="1"
+              >☆</label
+            >
+            <a href="" style="font-size: 10px">Yorum Ekle</a>
+          </div>
+
+          <div class="share-btn">
+            <a href="facebook.com">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"
+                />
+              </svg>
+            </a>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g>
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    fill-rule="nonzero"
+                    d="M2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.954 9.954 0 0 1-5.03-1.355L2.004 22zM8.391 7.308a.961.961 0 0 0-.371.1 1.293 1.293 0 0 0-.294.228c-.12.113-.188.211-.261.306A2.729 2.729 0 0 0 6.9 9.62c.002.49.13.967.33 1.413.409.902 1.082 1.857 1.971 2.742.214.213.423.427.648.626a9.448 9.448 0 0 0 3.84 2.046l.569.087c.185.01.37-.004.556-.013a1.99 1.99 0 0 0 .833-.231c.166-.088.244-.132.383-.22 0 0 .043-.028.125-.09.135-.1.218-.171.33-.288.083-.086.155-.187.21-.302.078-.163.156-.474.188-.733.024-.198.017-.306.014-.373-.004-.107-.093-.218-.19-.265l-.582-.261s-.87-.379-1.401-.621a.498.498 0 0 0-.177-.041.482.482 0 0 0-.378.127v-.002c-.005 0-.072.057-.795.933a.35.35 0 0 1-.368.13 1.416 1.416 0 0 1-.191-.066c-.124-.052-.167-.072-.252-.109l-.005-.002a6.01 6.01 0 0 1-1.57-1c-.126-.11-.243-.23-.363-.346a6.296 6.296 0 0 1-1.02-1.268l-.059-.095a.923.923 0 0 1-.102-.205c-.038-.147.061-.265.061-.265s.243-.266.356-.41a4.38 4.38 0 0 0 .263-.373c.118-.19.155-.385.093-.536-.28-.684-.57-1.365-.868-2.041-.059-.134-.234-.23-.393-.249-.054-.006-.108-.012-.162-.016a3.385 3.385 0 0 0-.403.004z"
+                  />
+                </g>
+              </svg>
+            </a>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                />
+              </svg>
+            </a>
+          </div>
+          <a href="" id="fav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="adet">
+          <a href="" id="plus-btn"><b>+</b></a>
+          <input
+            type="text"
+            disabled
+            style="width: 100px; height: 40px; text-align: center"
+            value="0"
+          />
+          <a href="" id="reduce-btn"><b>-</b></a>
+          <button class="btn btn-outline-dark" id="sepet-btn">
+            Sepete Ekle
+          </button>
+        </div>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
@@ -244,6 +605,117 @@
                 gün içerisinde hiçbir hukuki ve cezai sorumluluk üstlenmeksizin
                 ve hiç bir gerekçe göstermeksizin tüm ürünlerde malı reddederek
                 ürünü iade hakkı mevcuttur.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comment row">
+      <h6>Yorumlar</h6>
+      <hr />
+      <div class="first-comment">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action disabled" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3.03.2022</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted"><div class="rating">
+              <input type="radio" name="rating" value="5" id="5" /><label for="5"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="4" id="4" /><label for="4"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="3" id="3" /><label for="3"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="2" id="2" /><label for="2"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="1" id="1" /><label for="1"
+                >☆</label
+              >
+            </div></small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action disabled">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">15.06.2020</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted"><div class="rating">
+              <input type="radio" name="rating" value="5" id="5" /><label for="5"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="4" id="4" /><label for="4"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="3" id="3" /><label for="3"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="2" id="2" /><label for="2"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="1" id="1" /><label for="1"
+                >☆</label
+              >
+            </div></small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action disabled">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">21.05.2022</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted"><div class="rating">
+              <input type="radio" name="rating" value="5" id="5" /><label for="5"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="4" id="4" /><label for="4"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="3" id="3" /><label for="3"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="2" id="2" /><label for="2"
+                >☆</label
+              >
+              <input type="radio" name="rating" value="1" id="1" /><label for="1"
+                >☆</label
+              >
+            </div></small>
+          </a>
+        </div>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" style="margin-top: 30px;">Yorum Ekle</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yorum Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">E-mail:</label>
+                    <input type="email" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Şifre:</label>
+                    <input type="password" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Yorum:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Gönder</button>
               </div>
             </div>
           </div>

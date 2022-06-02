@@ -40,9 +40,10 @@ a:hover{
     height: 50%;
 }
 .card{
-    align-items: center;
+    align-items: flex-start;
     width: 400px;
     height: 500px;
+    text-align: left;   
 }
 .card img {
     width: 300px;
