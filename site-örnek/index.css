@@ -1,17 +1,13 @@
 
 nav{
-    height: 70px;
+    height: auto;
 }
 nav img {
     padding-left: 10px;
 }
 #navbarSupportedContent ul {
-    margin-left: 500px;
+    margin-left: 200px;
 }
-#nav-btn{
-margin-left: 300px;
-}
-
 .slider{
     margin-top: 30px;
 }
@@ -65,4 +61,44 @@ h5{
 .footer h5{
     margin-top: 100px;
 }
-
+.offcanvas-body img {
+    width: 100px;
+    height: 100px;
+  }
+  .offcanvas-body p {
+    margin: 1px;
+    margin-bottom: 5px;
+  }
+  .offcanvas-body h5{
+    margin-top: 10px;
+  }
+  .offcanvas-body .adet{
+    margin-top: 20px;
+  }
+  #basket-itemprice{
+    color: green;
+    position: relative;
+    left: 25px;
+    bottom: 25px;
+  }
+  .basket-items{
+    margin-bottom: 20px;
+  }
+  .close-button{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    position: relative;
+    top: 20px;
+    left: -5px;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 40%);
+    background: white;
+  }
+  .close-button p {
+    font-size: 13px;
+    position: relative;
+    bottom: 5px;
+    right: 3px;
+    font-weight: 500;
+  }

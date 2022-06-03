@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>Sepet Sayfası</title>
+    <style>
+      .container {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .table {
+        width: 900px;
+        height: auto;
+      }
+      .close-button {
+        border-radius: 50%;
+        width: 10px;
+        height: 15px;
+        border: 2px solid #fff;
+        position: relative;
+        top: 15px;
+        left: -10px;
+        box-shadow: 0 2px 6px 0 rgb(0 0 0 / 40%);
+        background: white;
+      }
+      .close-button p {
+        font-size: 10px;
+        position: relative;
+        bottom: 3px;
+        right: 3px;
+        font-weight: 500;
+      }
+      tbody th img {
+        width: 200px;
+        height: auto;
+      }
+      .table tbody td {
+        padding-top: 50px;
+      }
+      #plus-btn {
+        position: relative;
+        left: 20px;
+        font-weight: bold;
+        font-size: large;
+      }
+      #reduce-btn {
+        position: relative;
+        right: 20px;
+        font-weight: bold;
+        font-size: large;
+      }
+      .adet {
+        position: relative;
+        right: 30px;
+        bottom: 10px;
+      }
+      td p {
+        color: green;
+        padding-right: 30px;
+      }
+      .total {
+        color: green;
+        font-weight: bold;
+      }
+      #discound-input {
+        width: 800px;
+        height: auto;
+        border: none;
+        border-bottom: 1px solid #eee;
+        border-radius: 0;
+      }
+      .card{
+          align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <img
+              src="img/bayaz-logo.png"
+              style="width: 100px; margin-right: 250px;" 
+              height="20px"
+              alt=""
+            />
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style="width: 500px; margin-left: 200px;"
+              />
+              <button class="btn btn-outline-light" type="submit">
+                Search
+              </button>
+            </form>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse ms-5"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-btn">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html"
+                    >Ana sayfa</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="urunler.html"
+                    >Ürünler</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">İletişim</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sepet.html">Hakkımızda</a>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;"><i class="fas fa-heart"></i></button>
+              <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  2
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </nav>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"><b>Sepetim</b></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div><hr>
+          <div class="offcanvas-body">
+            <div class="basket-items row">
+            <div class="col-4">
+              <button class="close-button"><p>X</p></button>
+            <img
+                src="img/şapka.jpg"
+                class="img-thumbnail"
+                alt="..."
+                id="mini-photo2"
+            />
+          </div>
+            <div class="col-6">
+            <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+            <div class="basket-info">
+              <span>1X</span>
+              <p id="basket-itemprice">1.199,00 TL</p>
+            </div>
+          </div>
+        </div>
+        <div class="basket-items row">
+          <div class="col-4">
+            <button class="close-button"><p>X</p></button>
+          <img
+              src="img/elbise-resmi.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo2"
+          />
+        </div>
+          <div class="col-6">
+          <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+          <div class="basket-info">
+            <span>1X</span>
+            <p id="basket-itemprice">1.199,00 TL</p>
+          </div>
+        </div>
+      </div>
+      <div class="basket-buttons">
+        <button class="btn btn-secondary">Sepeti Temizle</button>
+        <button class="btn btn-success">Alışverişi Tamamla</button>
+      </div>
+      </div>
+      </div>
+    </div>
+    <div class="container row">
+        <div class="first-side col-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Ürün</th>
+            <th scope="col">Ürün İsmi</th>
+            <th scope="col">Birim Fiyatı</th>
+            <th scope="col">Adeti</th>
+            <th scope="col">Toplam Fiyatı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <div class="col-4">
+                <img
+                  src="img/şapka.jpg"
+                  class="img-thumbnail"
+                  alt="..."
+                  id="mini-photo2"
+                />
+              </div>
+            </th>
+            <td><span>İşlemeli Beyaz Mini Elbise</span></td>
+            <td><p>1.199,00 TL</p></td>
+            <td>
+              <div class="adet">
+                <a href="" id="plus-btn"><b>+</b></a>
+                <input
+                  type="text"
+                  disabled
+                  style="width: 100px; height: 40px; text-align: center"
+                  value="1"
+                />
+                <a href="" id="reduce-btn"><b>-</b></a>
+              </div>
+            </td>
+            <td class="total"><p>1.199,00 TL</p></td>
+            <td><button type="button" class="btn-close" aria-label="Close"></button></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <div class="col-4">
+                <img
+                  src="img/elbise-resmi.jpg"
+                  class="img-thumbnail"
+                  alt="..."
+                  id="mini-photo2"
+                />
+              </div>
+            </th>
+            <td><span>İşlemeli Beyaz Mini Elbise</span></td>
+            <td><p>1.199,00 TL</p></td>
+            <td>
+              <div class="adet">
+                <a href="" id="plus-btn"><b>+</b></a>
+                <input
+                  type="text"
+                  disabled
+                  style="width: 100px; height: 40px; text-align: center"
+                  value="1"
+                />
+                <a href="" id="reduce-btn"><b>-</b></a>
+              </div>
+            </td>
+            <td class="total"><p>1.199,00 TL</p></td>
+            <td><button type="button" class="btn-close" aria-label="Close"></button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="discound-code">
+        <input type="text" id="discound-input" placeholder="Kupon kodunuzu giriniz..."/>
+        <button class="btn btn-success">UYGULA</button>
+      </div>
+    </div>
+    <div class="second-side col-2">
+       <div class="card">
+          <h5>Sepet Toplam Tutar:</h5>
+              <p>2.398,00</p>
+              <div>
+                  <hr>
+                <input class="form-control" type="text" placeholder="İsim"><br>
+                <input class="form-control" type="text"  placeholder="Soyisim"><br>
+                <input class="form-control" type="email" placeholder="E-mail"><br>
+                <input class="form-control" type="tel" placeholder="Telefon Numaranız"><br>
+              </div>
+              <button class="btn btn-success">Siparişi Tamamla</button>
+       </div>
+    </div>
+    </div>
+    <footer class="footer row align-items-start">
+      <div class="footer-1 col">
+        <h3>Hakkımızda</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+          minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
+          facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
+          voluptatum tenetur.
+        </p>
+      </div>
+      <div class="footer-2 col">
+        <h2>İletişim</h2>
+        <p>0212 432 23 23</p>
+        <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
+      </div>
+      <div class="footer-3 col">
+        <h3>Ürünlerimiz</h3>
+        <p>Şapka</p>
+        <p>Elbise</p>
+        <p>Çanta</p>
+        <p>T-shirt</p>
+        <p>Terlik</p>
+      </div>
+    </footer>
+  </body>
+</html>

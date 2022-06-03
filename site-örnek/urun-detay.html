@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,234 +19,8 @@
     ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="urun-detay.css">
     <title>Document</title>
-    <style>
-      .container {
-        margin-top: 50px;
-        margin-bottom: 50px;
-      }
-
-      .left-barside img {
-        width: 300px;
-        height: 350px;
-        margin-left: 200px;
-        margin-top: 70px;
-      }
-      .right-barside {
-        width: 500px;
-        height: 300px;
-        margin-right: 300px;
-        margin-left: 50px;
-        margin-top: 100px;
-        text-align: center;
-      }
-      #sepet-btn {
-        margin-bottom: 30px;
-        margin-top: 30px;
-        width: 200px;
-        position: relative;
-        left: 10px;
-      }
-      #seri-no {
-        margin-bottom: 30px;
-      }
-      #price {
-        margin-top: 30px;
-        font-size: 20px;
-        color: green;
-        text-align: left;
-      }
-      .accordion {
-        position: relative;
-        bottom: 30px;
-        right: 30px;
-      }
-      .accordion-body {
-        text-align: left;
-      }
-      svg {
-        width: 25px;
-        height: 25px;
-        margin-bottom: 30px;
-        margin-left: 10px;
-      }
-      svg:hover {
-        background-color: gray;
-        border-radius: 70%;
-      }
-      #product-info {
-        height: 300px;
-        padding: 10px;
-      }
-      #fav-btn {
-        position: absolute;
-        top: 10px;
-        right: 30px;
-      }
-      #stok span {
-        color: green;
-        font-weight: bolder;
-      }
-      .share-btn {
-        position: relative;
-        left: 250px;
-        bottom: 20px;
-      }
-      #plus-btn {
-        position: relative;
-        left: 20px;
-        font-weight: bold;
-        font-size: large;
-      }
-      #reduce-btn {
-        position: relative;
-        right: 20px;
-        font-weight: bold;
-        font-size: large;
-      }
-      .adet {
-        position: relative;
-        right: 50px;
-        bottom: 20px;
-      }
-      .rating {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-      }
-
-      .rating > input {
-        display: none;
-      }
-
-      .rating > label {
-        position: relative;
-        width: 1em;
-        font-size: 20px;
-        color: #ffd600;
-        cursor: pointer;
-      }
-
-      .rating > label::before {
-        content: "\2605";
-        position: absolute;
-        opacity: 0;
-      }
-
-      .rating > label:hover:before,
-      .rating > label:hover ~ label:before {
-        opacity: 1 !important;
-      }
-
-      .rating > input:checked ~ label:before {
-        opacity: 1;
-      }
-
-      .rating:hover > input:checked ~ label:before {
-        opacity: 0.4;
-      }
-      .rating a {
-        position: relative;
-        top: 10px;
-        right: 5px;
-        font-weight: bold;
-      }
-      .mini-photos {
-        margin-left: 130px;
-        margin-right: auto;
-        text-align: left;
-      }
-      .mini-photos a img {
-        width: 100px;
-        height: 100px;
-        position: relative;
-      }
-      #mini-photo1 {
-        margin-right: 0;
-        margin-left: 350px;
-        margin-top: 10px;
-      }
-      #mini-photo2 {
-        margin-left: 10px;
-        margin-top: 10px;
-      }
-      .carousel-inner {
-        width: 500px;
-        height: 500px;
-        margin-top: 70px;
-        margin-left: 250px;
-      }
-      .comment {
-        margin-top: 150px;
-        margin-left: 100px;
-        margin-right: 100px;
-      }
-      h6 {
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        color: darkgoldenrod;
-      }
-      .first-comment {
-        width: 100%;
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .first-comment h5 {
-        text-align: left;
-      }
-      .first-comment p {
-        text-align: left;
-      }
-      li {
-        list-style: none;
-      }
-      small{
-        float: left;
-      }
-      .offcanvas-body img {
-        width: 100px;
-        height: 100px;
-      }
-      .offcanvas-body p {
-        margin: 1px;
-        margin-bottom: 5px;
-      }
-      .offcanvas-body h5{
-        margin-top: 10px;
-      }
-      .offcanvas-body .adet{
-        margin-top: 20px;
-      }
-      #basket-itemprice{
-        color: green;
-        position: relative;
-        left: 25px;
-        bottom: 25px;
-      }
-      .basket-items{
-        margin-bottom: 20px;
-      }
-      .close-button{
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #fff;
-        position: relative;
-        top: 30px;
-        left: 5px;
-        box-shadow: 0 2px 6px 0 rgb(0 0 0 / 40%);
-        background: white;
-      }
-      .close-button p {
-        font-size: 13px;
-        position: relative;
-        bottom: 5px;
-        right: 3px;
-        font-weight: 500;
-      }
-    </style>
   </head>
   <body>
     <div class="nav-bar">
@@ -253,10 +28,22 @@
         <div class="container-fluid">
           <img
             src="img/bayaz-logo.png"
-            style="width: 100px"
+            style="width: 100px; margin-right: 250px;" 
             height="20px"
             alt=""
           />
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              style="width: 500px; margin-left: 200px;"
+            />
+            <button class="btn btn-outline-light" type="submit">
+              Search
+            </button>
+          </form>
           <button
             class="navbar-toggler"
             type="button"
@@ -290,27 +77,17 @@
                 <a class="nav-link" href="#">İletişim</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Hakkımızda</a>
+                <a class="nav-link" href="sepet.html">Hakkımızda</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;"><i class="fas fa-heart"></i></button>
+            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
               <i class="fa fa-shopping-cart"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 2
                 <span class="visually-hidden">unread messages</span>
               </span>
             </button>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-light" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
@@ -531,11 +308,8 @@
             </a>
           </div>
           <a href="" id="fav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
-              />
-            </svg>
+            <i class="far fa-heart"></i>
+            <!-- <i class="fas fa-heart"></i>  favorilere eklenince buton bu olucak--> 
           </a>
         </div>
         <div class="adet">
