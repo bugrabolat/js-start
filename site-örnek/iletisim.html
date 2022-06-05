@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>İletişim sayfasi</title>
+    <style>
+      .maps {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-info ul{
+          list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <img
+          src="img/bayaz-logo.png"
+          style="width: 100px; margin-right: 250px"
+          height="20px"
+          alt=""
+        />
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            style="width: 500px; margin-left: 200px"
+          />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-btn">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html"
+                >Ana sayfa</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="urunler.html"
+                >Ürünler</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sepet.html">Hakkımızda</a>
+            </li>
+          </ul>
+          <button
+            type="button"
+            class="btn btn-outline-light position-relative"
+            style="margin-right: 10px; border-radius: 50%; border: none"
+            onclick="location='favori.html'"
+          >
+            <i class="fas fa-heart"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light position-relative"
+            style="margin-right: 50px; border-radius: 50%; border: none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
+          >
+            <i class="fa fa-shopping-cart"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              2
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      tabindex="-1"
+      id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+          <b>Sepetim</b>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <hr />
+      <div class="offcanvas-body">
+        <div class="basket-items row">
+          <div class="col-4">
+            <button class="close-button"><p>X</p></button>
+            <img
+              src="img/şapka.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo2"
+            />
+          </div>
+          <div class="col-6">
+            <h5>İşlemeli Beyaz Mini Elbise</h5>
+            <hr />
+            <div class="basket-info">
+              <span>1X</span>
+              <p id="basket-itemprice">1.199,00 TL</p>
+            </div>
+          </div>
+        </div>
+        <div class="basket-items row">
+          <div class="col-4">
+            <button class="close-button"><p>X</p></button>
+            <img
+              src="img/elbise-resmi.jpg"
+              class="img-thumbnail"
+              alt="..."
+              id="mini-photo2"
+            />
+          </div>
+          <div class="col-6">
+            <h5>İşlemeli Beyaz Mini Elbise</h5>
+            <hr />
+            <div class="basket-info">
+              <span>1X</span>
+              <p id="basket-itemprice">1.199,00 TL</p>
+            </div>
+          </div>
+        </div>
+        <div class="basket-buttons">
+          <button class="btn btn-secondary">Sepeti Temizle</button>
+          <button class="btn btn-success">Alışverişi Tamamla</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="maps">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24075.70494730297!2d28.96758210976917!3d41.03700042504666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zVGFrc2ltIE1leWRhbsSxLCBHw7xtw7zFn3N1eXUgTWFoYWxsZXNpLCAzNDQzNyBCZXlvxJ9sdS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1549403376594"
+          width="1000"
+          height="450"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="contact-info">
+        <ul>
+          <li><hr>
+            Adresimiz: mithatpaşa cad. kıvırcık sok. no:10 Taksim/İstanbul
+          </li><hr>
+          <li>Tel: 0212 984 84 84</li><hr>
+          <li>E-posta:RomanGiyim@gmail.com</li><hr>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="footer row align-items-start">
+      <div class="footer-1 col">
+        <h3>Hakkımızda</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+          minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
+          facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
+          voluptatum tenetur.
+        </p>
+      </div>
+      <div class="footer-2 col">
+        <h2>İletişim</h2>
+        <p>0212 432 23 23</p>
+        <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
+      </div>
+      <div class="footer-3 col">
+        <h3>Ürünlerimiz</h3>
+        <p>Şapka</p>
+        <p>Elbise</p>
+        <p>Çanta</p>
+        <p>T-shirt</p>
+        <p>Terlik</p>
+      </div>
+    </footer>
+  </body>
+</html>
