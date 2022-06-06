@@ -233,7 +233,7 @@
             >
               <input
                 type="radio"
-                class="btn-check btn-dark"
+                class="btn-check"
                 name="btnradio"
                 id="btnradio1"
                 autocomplete="off"
@@ -520,5 +520,14 @@
         <p>Terlik</p>
       </div>
     </footer>
+    <script>
+      var urunseri = document.getElementById("seri-no");
+      var urun1=
+{"urunadi":"İşlemeli Beyaz Mini Elbise","urunkodu":"v1234-123","urunfiyat":"1.199,00 TL","urunbeden":["36","38","40"]};
+    JSON.stringify(urun1);
+    console.log(urun1.urunadi);
+     console.log(urunseri.outerText);
+      urunseri.outerText = urun1.urunadi
+    </script>
   </body>
 </html>

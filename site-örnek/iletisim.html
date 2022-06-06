@@ -25,13 +25,28 @@
     <link rel="stylesheet" href="index.css" />
     <title>İletişim sayfasi</title>
     <style>
-      .maps {
-        margin-top: 50px;
+      .container{
         margin-left: auto;
         margin-right: auto;
       }
+      .maps {
+        margin-top: 50px;
+        margin-left: 100px;
+        margin-right: auto;
+      }
+      .contact-info{
+        margin-top: 50px;
+      }
       .contact-info ul{
+          margin-top: 30px;
           list-style-type: none;
+      }.contact-info li {
+        margin-top: 30px;
+      }
+      #message-btn{
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
       }
     </style>
   </head>
@@ -175,25 +190,56 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="maps">
+    <div class="container row">
+      <div class="maps col">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24075.70494730297!2d28.96758210976917!3d41.03700042504666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zVGFrc2ltIE1leWRhbsSxLCBHw7xtw7zFn3N1eXUgTWFoYWxsZXNpLCAzNDQzNyBCZXlvxJ9sdS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1549403376594"
-          width="1000"
-          height="450"
+          width="700"
+          height="500"
           frameborder="0"
           style="border: 0"
           allowfullscreen
         ></iframe>
       </div>
-      <div class="contact-info">
+      <div class="contact-info card col">
         <ul>
-          <li><hr>
-            Adresimiz: mithatpaşa cad. kıvırcık sok. no:10 Taksim/İstanbul
+          <h5>İletişim Bilgileri</h5>
+          <li><i class="fa-solid fa-location-dot"></i>
+            Mithatpaşa cad. kıvırcık sok. no:10 Taksim/İstanbul
           </li><hr>
-          <li>Tel: 0212 984 84 84</li><hr>
-          <li>E-posta:RomanGiyim@gmail.com</li><hr>
+          <li><i class="fa-solid fa-phone"></i> +90 212 984 84 84</li><hr>
+          <li><i class="fa-solid fa-envelope"></i> RomanGiyim@gmail.com</li>
         </ul>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="message-btn">Mesaj Gönder</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mesaj Yolla</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label"></label>
+                    <input type="text" class="form-control" id="recipient-name" placeholder="İsim">
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label"></label>
+                    <input type="email" class="form-control" id="recipient-name" placeholder="E-posta">
+                  </div>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label"></label>
+                    <textarea class="form-control" id="message-text" placeholder="Mesaj Giriniz"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Mesajı Gönder</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

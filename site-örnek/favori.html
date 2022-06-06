@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,145 +25,172 @@
     <link rel="stylesheet" href="index.css" />
     <title>Favoriler sayfası</title>
     <style>
-      .container{
+      .container {
         margin-top: 50px;
       }
+      .fav-item {
+        height: 500px;
+        text-align: left;
+        width: auto;
+        align-items: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <img
-            src="img/bayaz-logo.png"
-            style="width: 100px; margin-right: 250px;" 
-            height="20px"
-            alt=""
+      <div class="container-fluid">
+        <img
+          src="img/bayaz-logo.png"
+          style="width: 100px; margin-right: 250px"
+          height="20px"
+          alt=""
+        />
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            style="width: 500px; margin-left: 200px"
           />
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              style="width: 500px; margin-left: 200px;"
-            />
-            <button class="btn btn-outline-light" type="submit">
-              Search
-            </button>
-          </form>
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-btn">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html"
+                >Ana sayfa</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="urunler.html"
+                >Ürünler</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sepet.html">Hakkımızda</a>
+            </li>
+          </ul>
           <button
-            class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            class="btn btn-outline-light position-relative"
+            style="margin-right: 10px; border-radius: 50%; border: none"
           >
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-heart"></i>
           </button>
-          <div
-            class="collapse navbar-collapse ms-5"
-            id="navbarSupportedContent"
+          <button
+            type="button"
+            class="btn btn-outline-light position-relative"
+            style="margin-right: 50px; border-radius: 50%; border: none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
           >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-btn">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  >Ana sayfa</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="urunler.html"
-                  >Ürünler</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">İletişim</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="sepet.html">Hakkımızda</a>
-              </li>
-            </ul>
-            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;"><i class="fas fa-heart"></i></button>
-            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-              <i class="fa fa-shopping-cart"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                2
-                <span class="visually-hidden">unread messages</span>
-              </span>
-            </button>
-          </div>
+            <i class="fa fa-shopping-cart"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              2
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
         </div>
-      </nav>
-      <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card"><a href="urun-detay.html">
-              <img src="img/ayakkabı.jpeg" class="card-img-top" alt="...">
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="fav-item card">
+            <a href="urun-detay.html">
+              <img src="img/ayakkabı.jpeg" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Ayakkabı</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
               </div>
-          </a>
-          <a href="">
-            <i class="fas  fa-heart"></i>
-          </a>
-            </div>
+            </a>
+            <a href="">
+              <i class="fas fa-heart"></i>
+            </a>
           </div>
-          <div class="col">
-            <div class="card"><a href="urun-detay.html">
-              <img src="img/elbise-resmi.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="col">
+          <div class="fav-item card">
+            <a href="urun-detay.html">
+              <img src="img/elbise-resmi.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Elbise</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
               </div>
-            </div>
-          </a>
-          <a href="">
-            <i class="fas  fa-heart"></i>
-          </a>
+            </a>
+            <a href="">
+              <i class="fas fa-heart"></i>
+            </a>
           </div>
-          <div class="col">
-            <div class="card"><a href="urun-detay.html">
-              <img src="img/terlik.webp" class="card-img-top" alt="...">
+        </div>
+        <div class="col">
+          <div class="fav-item card">
+            <a href="urun-detay.html">
+              <img src="img/terlik.webp" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Terlik</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content.
+                </p>
               </div>
-            </div>
-          </a>
-          <a href="">
-            <i class="fas  fa-heart"></i>
-          </a>
+            </a>
+            <a href="">
+              <i class="fas fa-heart"></i>
+            </a>
           </div>
+        </div>
       </div>
+    </div>
+    <footer class="footer row align-items-start">
+      <div class="footer-1 col">
+        <h3>Hakkımızda</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+          minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
+          facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
+          voluptatum tenetur.
+        </p>
       </div>
-      <footer class="footer row align-items-start">
-        <div class="footer-1 col">
-          <h3>Hakkımızda</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-            minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
-            facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
-            voluptatum tenetur.
-          </p>
-        </div>
-        <div class="footer-2 col">
-          <h2>İletişim</h2>
-          <p>0212 432 23 23</p>
-          <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
-        </div>
-        <div class="footer-3 col">
-          <h3>Ürünlerimiz</h3>
-          <p>Şapka</p>
-          <p>Elbise</p>
-          <p>Çanta</p>
-          <p>T-shirt</p>
-          <p>Terlik</p>
-        </div>
-      </footer>
-</body>
+      <div class="footer-2 col">
+        <h2>İletişim</h2>
+        <p>0212 432 23 23</p>
+        <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
+      </div>
+      <div class="footer-3 col">
+        <h3>Ürünlerimiz</h3>
+        <p>Şapka</p>
+        <p>Elbise</p>
+        <p>Çanta</p>
+        <p>T-shirt</p>
+        <p>Terlik</p>
+      </div>
+    </footer>
+  </body>
 </html>
