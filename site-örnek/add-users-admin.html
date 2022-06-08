@@ -22,7 +22,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <title>Urun ekle</title>
+    <title>Document</title>
     <style>
       nav {
         background-color: black;
@@ -51,33 +51,7 @@
         color: aliceblue;
       }
       .container {
-        margin-top: 50px;
-      }
-      img {
-        width: 50px;
-        height: auto;
-      }
-      .table td {
-        padding-top: 30px;
-      }
-      .table td p {
-        position: relative;
-        top: 10px;
-      }
-      .form-check {
-        padding-left: 100px;
-      }
-      #add-item {
-        margin-bottom: 30px;
-      }
-      input {
-        margin-bottom: 30px;
-      }
-      .form-floating {
-        margin-bottom: 30px;
-      }
-      .btn {
-        margin-left: 10px;
+        margin-top: 70px;
       }
     </style>
   </head>
@@ -92,7 +66,7 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <i class="fa-solid fa-user"></i> Admin
+          Admin
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Çıkış yap</a></li>
@@ -104,10 +78,10 @@
         <div class="list-group">
           <a
             href="users-admin.html"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action active"
             aria-current="true"
           >
-          <i class="fa-solid fa-users"></i> Kullanıcılar
+          <i class="fa-solid fa-users"></i> Kullanıcı Ekle
           </a>
           <a
             href="admin-paneli.html"
@@ -116,34 +90,47 @@
           </a>
           <a
             href="urunler-admin.html"
-            class="list-group-item list-group-item-action active"
+            class="list-group-item list-group-item-action"
             ><i class="fa-solid fa-cart-shopping"></i> Ürünler</a
           >
         </div>
       </div>
-      <div class="container col-6 card">
-        <h5>Resim yükle</h5>
-        <input type="file" />
-        <h5>Ürün ismi</h5>
-        <input type="text" placeholder="Ürün ismi" />
-        <h5>Ürün kodu</h5>
-        <input type="text" placeholder="Ürün kodu" />
-        <h5>Ürün fiyatı</h5>
-        <input type="text" placeholder="Ürün Fiyatı" />
-        <h5>Ürün açıklama</h5>
-        <div class="form-floating">
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            id="floatingTextarea2"
-            style="height: 100px"
-          ></textarea>
-          <label for="floatingTextarea2">Ürün açıklama</label>
-        </div>
-        <div class="button-section row">
-          <button class="btn btn-danger col-1">Sil</button>
-          <button class="btn btn-success col-2">Yükle</button>
-        </div>
+      <div class="container col-6">
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Kullanıcılar</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder="Kullanıcı Adı"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" />
+          </div>
+          <div class="col-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="E-mail"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputState" class="form-label">Rolü</label>
+            <select id="inputState" class="form-select">
+              <option selected>Yönetici</option>
+              <option>Editör</option>
+              <option>Üye</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Ekle</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
