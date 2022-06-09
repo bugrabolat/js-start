@@ -142,13 +142,13 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">İletişim</a>
+                  <a class="nav-link" href="iletisim.html">İletişim</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="sepet.html">Hakkımızda</a>
+                  <a class="nav-link" href="sepet.html">Sepetim</a>
                 </li>
               </ul>
-              <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;"><i class="fas fa-heart"></i></button>
+              <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;" onclick="location='favori.html'"><i class="fas fa-heart"></i></button>
               <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -168,15 +168,17 @@
             <div class="basket-items row">
             <div class="col-4">
               <button class="close-button"><p>X</p></button>
+              <a href="urun-detay.html">
             <img
                 src="img/şapka.jpg"
                 class="img-thumbnail"
                 alt="..."
                 id="mini-photo2"
             />
+            </a>
           </div>
             <div class="col-6">
-            <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+           <a href="urun-detay.html"><h5>İşlemeli Beyaz Mini Elbise</h5></a><hr>
             <div class="basket-info">
               <span>1X</span>
               <p id="basket-itemprice">1.199,00 TL</p>
@@ -186,15 +188,17 @@
         <div class="basket-items row">
           <div class="col-4">
             <button class="close-button"><p>X</p></button>
+            <a href="urun-detay.html">
           <img
               src="img/elbise-resmi.jpg"
               class="img-thumbnail"
               alt="..."
               id="mini-photo2"
           />
+        </a>
         </div>
           <div class="col-6">
-          <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+            <a href="urun-detay.html"><h5>İşlemeli Beyaz Mini Elbise</h5></a><hr>
           <div class="basket-info">
             <span>1X</span>
             <p id="basket-itemprice">1.199,00 TL</p>
@@ -224,15 +228,17 @@
           <tr>
             <th scope="row">
               <div class="col-4">
+                <a href="urun-detay.html">
                 <img
                   src="img/şapka.jpg"
                   class="img-thumbnail"
                   alt="..."
                   id="mini-photo2"
                 />
+              </a>
               </div>
             </th>
-            <td><span>İşlemeli Beyaz Mini Elbise</span></td>
+            <td><a href="urun-detay.html"><span>İşlemeli Beyaz Mini Elbise</span></a></td>
             <td><p>1.199,00 TL</p></td>
             <td>
               <div class="adet">
@@ -252,15 +258,17 @@
           <tr>
             <th scope="row">
               <div class="col-4">
+                <a href="urun-detay.html">
                 <img
                   src="img/elbise-resmi.jpg"
                   class="img-thumbnail"
                   alt="..."
                   id="mini-photo2"
                 />
+                </a>
               </div>
             </th>
-            <td><span>İşlemeli Beyaz Mini Elbise</span></td>
+            <td><a href="urun-detay.html"><span>İşlemeli Beyaz Mini Elbise</span></a></td>
             <td><p>1.199,00 TL</p></td>
             <td>
               <div class="adet">
@@ -301,8 +309,8 @@
     </div>
     <footer class="footer row align-items-start">
       <div class="footer-1 col">
-        <h3>Hakkımızda</h3>
-        <p>
+        <h3>Hakkımızda</h3><hr>
+        <p id="hakkımızda-footer">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
           minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
           facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
@@ -310,18 +318,29 @@
         </p>
       </div>
       <div class="footer-2 col">
-        <h2>İletişim</h2>
-        <p>0212 432 23 23</p>
-        <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
+        <h2 style="height: 34px;">İletişim</h2><hr>
+        <p><i class="fa-solid fa-phone"></i> <span class="badge rounded-pill text-bg-light"><a href="">0212 432 23 23</a></span></p>
+        <p><i class="fa-solid fa-envelope"></i> <span class="badge rounded-pill text-bg-light"><a href="">canselim1@gmail.com</a></span></p>
+        <p><i class="fa-solid fa-fax"></i> <span class="badge rounded-pill text-bg-light"><a href="">212-5551212</a></span></p>
       </div>
       <div class="footer-3 col">
-        <h3>Ürünlerimiz</h3>
-        <p>Şapka</p>
-        <p>Elbise</p>
-        <p>Çanta</p>
-        <p>T-shirt</p>
-        <p>Terlik</p>
+        <h3>Ürünlerimiz</h3><hr>
+        <div class="urunler-footer">
+        <span class="btn btn-sm btn-outline-light">Şapka</span>
+        <span class="btn btn-sm btn-outline-light">Elbise</span>
+        <span class="btn btn-sm btn-outline-light">Çanta</span>
+        <span class="btn btn-sm btn-outline-light">T-shirt</span>
+        <span class="btn btn-sm btn-outline-light">Terlik</span>
+        <span class="btn btn-sm btn-outline-light">Çorap</span>
+        <span class="btn btn-sm btn-outline-light">Ayakkabı</span>
+        <span class="btn btn-sm btn-outline-light">Saat</span>
+        <span class="btn btn-sm btn-outline-light">Kolye</span>
+        <span class="btn btn-sm btn-outline-light">Bere</span>
+        <span class="btn btn-sm btn-outline-light">Atkı</span>
+        <span class="btn btn-sm btn-outline-light">Etek</span>
+        <span class="btn btn-sm btn-outline-light">Babet</span>
       </div>
+    </div>
     </footer>
   </body>
 </html>

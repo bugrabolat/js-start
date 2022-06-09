@@ -50,8 +50,12 @@
         background-color: gray;
         color: aliceblue;
       }
+      img {
+        width: 100px;
+        height: auto;
+      }
       .container {
-        margin-top: 70px;
+        margin-top: 50px;
       }
       li a{
         color: black;
@@ -84,14 +88,14 @@
         <div class="list-group">
           <a
             href="users-admin.html"
-            class="list-group-item list-group-item-action active"
+            class="list-group-item list-group-item-action"
             aria-current="true"
           >
-          <i class="fa-solid fa-users"></i> Kullanıcı Ekle
+            <i class="fa-solid fa-users"></i> Kullanıcılar
           </a>
           <a
             href="admin-paneli.html"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action active"
             ><i class="fa-solid fa-house"></i> Ana sayfa
           </a>
           <a
@@ -104,46 +108,18 @@
       <div class="container col-6">
         <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Kullanıcılar</a></li>
-            <li class="breadcrumb-item"><a href="#">Kullanıcı Listesi</a></li>
-            <li class="breadcrumb-item active">Kullanıcı ekle</li>
+            <li class="breadcrumb-item"><a href="#">Ana sayfa</a></li>
+            <li class="breadcrumb-item"><a href="#">Slider listesi</a></li>
+            <li class="breadcrumb-item active">Slide ekle</li>
           </ol>
         </div>
-        <form class="row g-3 card">
-          <div class="col-md-6">
-            <label for="inputAddress" class="form-label">Kullanıcılar</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputAddress"
-              placeholder="Kullanıcı Adı"
-            />
+          <h5>Slide Ekle</h5>
+          <div class="card">
+              <h5>Resim Yükle</h5>
+            <input type="file"><br>
+            <h5>Slide linki</h5>
+            <input type="url" placeholder="Slide linki giriniz">
           </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" />
-          </div>
-          <div class="col-4">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="inputEmail4"
-              placeholder="E-mail"
-            />
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">Rolü</label>
-            <select id="inputState" class="form-select">
-              <option selected>Yönetici</option>
-              <option>Editör</option>
-              <option>Üye</option>
-            </select>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Ekle</button>
-          </div><br>
-        </form>
       </div>
     </div>
   </body>

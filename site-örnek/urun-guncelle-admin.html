@@ -22,7 +22,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Urun ekle</title>
     <style>
       nav {
         background-color: black;
@@ -70,11 +70,23 @@
       #add-item {
         margin-bottom: 30px;
       }
-      span{
-        margin-bottom: 10px;
+      input {
+        margin-bottom: 30px;
       }
-      .btn-close{
+      .form-floating {
+        margin-bottom: 30px;
+      }
+      .btn {
         margin-left: 10px;
+      }
+      span{
+        margin-left: 10px;
+      }
+      li a{
+        color: black;
+      }
+      li a:hover{
+        color: gray;
       }
     </style>
   </head>
@@ -104,7 +116,7 @@
             class="list-group-item list-group-item-action"
             aria-current="true"
           >
-          <i class="fa-solid fa-users"></i> Kullanıcılar
+            <i class="fa-solid fa-users"></i> Kullanıcılar
           </a>
           <a
             href="admin-paneli.html"
@@ -118,49 +130,77 @@
           >
         </div>
       </div>
-      <div class="container col-6">
-        <h5>Ürünler Listesi Güncelle</h5>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Foto</th>
-              <th scope="col">ürün ismi</th>
-              <th scope="col">Ürün kodu</th>
-              <th scope="col">Fiyatı</th>
-              <th scope="col">Ürün bedenleri</th>
-              <th scope="col">Güncelle</th>
-              <th scope="col">Sil</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><img src="img/şapka.jpg" alt="" /></th>
-              <td><input type="text" placeholder="Ürün İsmi" /></td>
-              <td><input type="text" placeholder="Ürün kodu" /></td>
-              <td><input type="text" placeholder="Ürün fiyatı" /></td>
-              <td><input type="text" placeholder="Ürün Bedeni" id="urun-beden" onkeypress="onBlurBeden(event)"/></td>
-              <td><ul id="list"></ul></td>
-              <td><button class="btn btn-primary">Güncelle</button></td>
-              <td><button class="btn btn-danger">Sil</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="container col-6 card">
+          <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
+              <li class="breadcrumb-item"><a href="#">Ürün listesi</a></li>
+              <li class="breadcrumb-item active">Ürün güncelle</li>
+            </ol>
+          </div>
+        <div class="row">
+          <div class="col-6">
+        <h5>Resim yükle</h5>
+        <input type="file" />
+      </div>
+      <div class="col-6">
+        <h5>Ürün ismi</h5>
+        <input type="text" placeholder="Ürün ismi" />
+      </div>
+      <div class="col-6">
+        <h5>Ürün kodu</h5>
+        <input type="text" placeholder="Ürün kodu" />
+      </div>
+      <div class="col-6" style="padding-right: 30px;">
+        <h5>Ürün bedenleri</h5>
+          <input
+            type="text"
+            placeholder="Ürün Bedeni"
+            id="urun-beden"
+            onkeypress="onBlurBeden(event)"
+          />
+        </div>
+        <div class="col-6">
+          <h5>Ürün fiyatı</h5>
+          <input type="text" placeholder="Ürün Fiyatı" />
+        </div>
+        <div class="col-6">
+        <td><ul id="list"></ul></td>
+      </div>
+      </div>
+        <h5>Ürün açıklama</h5>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="floatingTextarea2"
+            style="height: 100px"
+          ></textarea>
+          <label for="floatingTextarea2">Ürün açıklama</label>
+        </div>
+        <div class="button-section row">
+          <button class="btn btn-danger col-1">Sil</button>
+          <button class="btn btn-success col-2">Yükle</button>
+        </div>
       </div>
     </div>
     <script>
-     var bedenValue = document.getElementById("urun-beden");
-     function onBlurBeden(e){
-       if(e.keyCode == 13){
-       const olusturspan = document.createElement("span");
-       olusturspan.className="badge rounded-pill text-bg-secondary";
-       olusturspan.innerHTML=bedenValue.value;
-       document.getElementById("list").appendChild(olusturspan);
-       const olusturbutton = document.createElement("button");
-       olusturbutton.className="btn-close";
-       olusturspan.appendChild(olusturbutton);
-       bedenValue.value =""
-       }
-     }
+      var bedenValue = document.getElementById("urun-beden");
+      function onBlurBeden(e) {
+        if (e.keyCode == 13) {
+          const olusturspan = document.createElement("span");
+          olusturspan.className = "badge rounded-pill text-bg-secondary";
+          olusturspan.innerHTML = bedenValue.value;
+          document.getElementById("list").appendChild(olusturspan);
+          const olusturbutton = document.createElement("button");
+          olusturbutton.className = "btn-close btn-close-white";
+          olusturbutton.onclick = function(){
+            document.getElementById("list").removeChild(olusturspan);
+          }
+          olusturspan.appendChild(olusturbutton);
+          bedenValue.value = "";
+        }
+      }
     </script>
   </body>
 </html>

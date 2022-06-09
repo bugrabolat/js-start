@@ -74,13 +74,13 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">İletişim</a>
+                <a class="nav-link" href="iletisim.html">İletişim</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="sepet.html">Hakkımızda</a>
+                <a class="nav-link" href="sepet.html">Sepetim</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;"><i class="fas fa-heart"></i></button>
+            <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 10px; border-radius: 50%; border: none;" onclick="location='favori.html'"><i class="fas fa-heart"></i></button>
             <button type="button" class="btn btn-outline-light position-relative" style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
               <i class="fa fa-shopping-cart"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -100,15 +100,18 @@
           <div class="basket-items row">
           <div class="col-4">
             <button class="close-button"><p>X</p></button>
+            <a href="urun-detay.html">
           <img
               src="img/şapka.jpg"
               class="img-thumbnail"
               alt="..."
               id="mini-photo2"
           />
+        </a>
         </div>
           <div class="col-6">
-          <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+            <a href="urun-detay.html">
+          <h5>İşlemeli Beyaz Mini Elbise</h5></a><hr>
           <div class="basket-info">
             <span>1X</span>
             <p id="basket-itemprice">1.199,00 TL</p>
@@ -118,15 +121,18 @@
       <div class="basket-items row">
         <div class="col-4">
           <button class="close-button"><p>X</p></button>
+          <a href="urun-detay.html">
         <img
             src="img/elbise-resmi.jpg"
             class="img-thumbnail"
             alt="..."
             id="mini-photo2"
         />
+      </a>
       </div>
         <div class="col-6">
-        <h5>İşlemeli Beyaz Mini Elbise</h5><hr>
+          <a href="urun-detay.html">
+        <h5>İşlemeli Beyaz Mini Elbise</h5></a><hr>
         <div class="basket-info">
           <span>1X</span>
           <p id="basket-itemprice">1.199,00 TL</p>
@@ -135,7 +141,7 @@
     </div>
     <div class="basket-buttons">
       <button class="btn btn-secondary">Sepeti Temizle</button>
-      <button class="btn btn-success">Alışverişi Tamamla</button>
+      <button class="btn btn-success"onclick="location='sepet.html'">Alışverişi Tamamla</button>
     </div>
     </div>
     </div>
@@ -248,7 +254,7 @@
                 id="btnradio2"
                 autocomplete="off"
               />
-              <label class="btn btn-outline-dark" for="btnradio2">38</label>
+              <label class="btn btn-outline-dark" for="btnradio2" id="label2">38</label>
               <br />
               <input
                 type="radio"
@@ -474,16 +480,32 @@
               <div class="modal-body">
                 <form>
                   <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">E-mail:</label>
+                    <label for="recipient-name" class="col-form-label">Yorum Başlık:</label>
                     <input type="email" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Şifre:</label>
-                    <input type="password" class="form-control" id="recipient-name">
                   </div>
                   <div class="mb-3">
                     <label for="message-text" class="col-form-label">Yorum:</label>
                     <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                  <div class="mb-3" style="display: flex;">
+                    <label for="recipient-name" class="col-form-label" style="padding-right: 10px;">Puanlama:</label>
+                    <small class="text-muted"><div class="rating">
+                      <input type="radio" name="rating" value="5" id="5" /><label for="5"
+                        >☆</label
+                      >
+                      <input type="radio" name="rating" value="4" id="4" /><label for="4"
+                        >☆</label
+                      >
+                      <input type="radio" name="rating" value="3" id="3" /><label for="3"
+                        >☆</label
+                      >
+                      <input type="radio" name="rating" value="2" id="2" /><label for="2"
+                        >☆</label
+                      >
+                      <input type="radio" name="rating" value="1" id="1" /><label for="1"
+                        >☆</label
+                      >
+                    </div></small>
                   </div>
                 </form>
               </div>
@@ -498,8 +520,8 @@
     </div>
     <footer class="footer row align-items-start">
       <div class="footer-1 col">
-        <h3>Hakkımızda</h3>
-        <p>
+        <h3>Hakkımızda</h3><hr>
+        <p id="hakkımızda-footer">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
           minus. Explicabo sapiente non unde ad nobis, asperiores cum sed
           facilis, vitae soluta delectus ab? Debitis quasi quidem magnam
@@ -507,27 +529,40 @@
         </p>
       </div>
       <div class="footer-2 col">
-        <h2>İletişim</h2>
-        <p>0212 432 23 23</p>
-        <p>E-posta adresimiz: klasdjlsaj@gmail.com</p>
+        <h2 style="height: 34px;">İletişim</h2><hr>
+        <p><i class="fa-solid fa-phone"></i> <span class="badge rounded-pill text-bg-light"><a href="">0212 432 23 23</a></span></p>
+        <p><i class="fa-solid fa-envelope"></i> <span class="badge rounded-pill text-bg-light"><a href="">canselim1@gmail.com</a></span></p>
+        <p><i class="fa-solid fa-fax"></i> <span class="badge rounded-pill text-bg-light"><a href="">212-5551212</a></span></p>
       </div>
       <div class="footer-3 col">
-        <h3>Ürünlerimiz</h3>
-        <p>Şapka</p>
-        <p>Elbise</p>
-        <p>Çanta</p>
-        <p>T-shirt</p>
-        <p>Terlik</p>
+        <h3>Ürünlerimiz</h3><hr>
+        <div class="urunler-footer">
+        <span class="btn btn-sm btn-outline-light">Şapka</span>
+        <span class="btn btn-sm btn-outline-light">Elbise</span>
+        <span class="btn btn-sm btn-outline-light">Çanta</span>
+        <span class="btn btn-sm btn-outline-light">T-shirt</span>
+        <span class="btn btn-sm btn-outline-light">Terlik</span>
+        <span class="btn btn-sm btn-outline-light">Çorap</span>
+        <span class="btn btn-sm btn-outline-light">Ayakkabı</span>
+        <span class="btn btn-sm btn-outline-light">Saat</span>
+        <span class="btn btn-sm btn-outline-light">Kolye</span>
+        <span class="btn btn-sm btn-outline-light">Bere</span>
+        <span class="btn btn-sm btn-outline-light">Atkı</span>
+        <span class="btn btn-sm btn-outline-light">Etek</span>
+        <span class="btn btn-sm btn-outline-light">Babet</span>
       </div>
+    </div>
     </footer>
     <script>
       var urunseri = document.getElementById("seri-no");
       var urun1=
-{"urunadi":"İşlemeli Beyaz Mini Elbise","urunkodu":"v1234-123","urunfiyat":"1.199,00 TL","urunbeden":["36","38","40"]};
+{"urunadi":"İşlemeli Beyaz Mini Elbise","urunkodu":"v1234-123","urunfiyat":"1.199,00 TL","urunbeden":["36","38","40"],"urunimg":"https://cdn2.sorsware.com/addax/ContentImages/Product/2020-yaz-sezonu/ADX-0000022993/suet-sapka-spk1037-e3_adx-0000022993_siyah-siyah_1_buyuk.jpg","urunstok":"var"};
     JSON.stringify(urun1);
-    console.log(urun1.urunadi);
+    console.log(urun1.urunkodu);
      console.log(urunseri.outerText);
-      urunseri.outerText = urun1.urunadi
+      urunseri.outerText = urun1.urunkodu;
+      var label = document.getElementById("label2");
+      console.log(label.outerText)
     </script>
   </body>
 </html>

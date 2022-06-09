@@ -57,9 +57,23 @@ h5{
     text-align: center;
     margin-top: 300px;
     padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .footer h5{
     margin-top: 100px;
+}
+.footer span{
+    margin-bottom: 5px;
+}
+#hakkımızda-footer{
+    text-align: start;
+}
+.urunler-footer{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .offcanvas-body img {
     width: 100px;
