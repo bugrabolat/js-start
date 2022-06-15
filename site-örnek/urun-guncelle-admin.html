@@ -22,6 +22,12 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Urun ekle</title>
     <style>
       nav {
@@ -79,13 +85,13 @@
       .btn {
         margin-left: 10px;
       }
-      span{
+      span {
         margin-left: 10px;
       }
-      li a{
+      li a {
         color: black;
       }
-      li a:hover{
+      li a:hover {
         color: gray;
       }
     </style>
@@ -131,43 +137,56 @@
         </div>
       </div>
       <div class="container col-6 card">
-          <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
-              <li class="breadcrumb-item"><a href="#">Ürün listesi</a></li>
-              <li class="breadcrumb-item active">Ürün güncelle</li>
-            </ol>
-          </div>
+        <div
+          style="
+            --bs-breadcrumb-divider: url(
+              &#34;data:image/svg + xml,
+              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+            );
+          "
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
+            <li class="breadcrumb-item"><a href="#">Ürün listesi</a></li>
+            <li class="breadcrumb-item active">Ürün güncelle</li>
+          </ol>
+        </div>
         <div class="row">
           <div class="col-6">
-        <h5>Resim yükle</h5>
-        <input type="file" />
-      </div>
-      <div class="col-6">
-        <h5>Ürün ismi</h5>
-        <input type="text" placeholder="Ürün ismi" />
-      </div>
-      <div class="col-6">
-        <h5>Ürün kodu</h5>
-        <input type="text" placeholder="Ürün kodu" />
-      </div>
-      <div class="col-6" style="padding-right: 30px;">
-        <h5>Ürün bedenleri</h5>
-          <input
-            type="text"
-            placeholder="Ürün Bedeni"
-            id="urun-beden"
-            onkeypress="onBlurBeden(event)"
-          />
+            <h5>Resim yükle</h5>
+            <input type="file" />
+          </div>
+          <div class="col-6">
+            <h5>Ürün ismi</h5>
+            <input
+              type="text"
+              placeholder="Ürün ismi"
+              id="productname"
+              value=""
+            />
+          </div>
+          <div class="col-6">
+            <h5>Ürün kodu</h5>
+            <input type="text" placeholder="Ürün kodu" id="productcode" />
+          </div>
+          <div class="col-6" style="padding-right: 30px">
+            <h5>Ürün bedenleri</h5>
+            <input
+              type="text"
+              placeholder="Ürün Bedeni"
+              id="urun-beden"
+              onkeypress="onBlurBeden(event)"
+            />
+          </div>
+          <div class="col-6">
+            <h5>Ürün fiyatı</h5>
+            <input type="text" placeholder="Ürün Fiyatı" id="productprice" />
+          </div>
+          <div class="col-6">
+            <td><ul id="list"></ul></td>
+          </div>
         </div>
-        <div class="col-6">
-          <h5>Ürün fiyatı</h5>
-          <input type="text" placeholder="Ürün Fiyatı" />
-        </div>
-        <div class="col-6">
-        <td><ul id="list"></ul></td>
-      </div>
-      </div>
         <h5>Ürün açıklama</h5>
         <div class="form-floating">
           <textarea
@@ -176,31 +195,97 @@
             id="floatingTextarea2"
             style="height: 100px"
           ></textarea>
-          <label for="floatingTextarea2">Ürün açıklama</label>
+          <label for="floatingTextarea2" id="productdescription"
+            >Ürün açıklama</label
+          >
         </div>
         <div class="button-section row">
           <button class="btn btn-danger col-1">Sil</button>
-          <button class="btn btn-success col-2">Yükle</button>
+          <button class="btn btn-success col-2" onclick="guncelle()">
+            Güncelle
+          </button>
         </div>
       </div>
     </div>
     <script>
-      var bedenValue = document.getElementById("urun-beden");
-      function onBlurBeden(e) {
-        if (e.keyCode == 13) {
-          const olusturspan = document.createElement("span");
-          olusturspan.className = "badge rounded-pill text-bg-secondary";
-          olusturspan.innerHTML = bedenValue.value;
-          document.getElementById("list").appendChild(olusturspan);
-          const olusturbutton = document.createElement("button");
-          olusturbutton.className = "btn-close btn-close-white";
-          olusturbutton.onclick = function(){
-            document.getElementById("list").removeChild(olusturspan);
-          }
-          olusturspan.appendChild(olusturbutton);
-          bedenValue.value = "";
-        }
-      }
+            var bedenValue = document.getElementById("urun-beden");
+            function onBlurBeden(e) {
+              if (e.keyCode == 13) {
+                const olusturspan = document.createElement("span");
+                olusturspan.className = "badge rounded-pill text-bg-secondary";
+                olusturspan.innerHTML = bedenValue.value;
+                document.getElementById("list").appendChild(olusturspan);
+                const olusturbutton = document.createElement("button");
+                olusturbutton.className = "btn-close btn-close-white";
+                olusturbutton.onclick = function(){
+                  document.getElementById("list").removeChild(olusturspan);
+                }
+                olusturspan.appendChild(olusturbutton);
+                bedenValue.value = "";
+              }
+            }
+            var urunid = location.search.slice(1).split("=")[1];
+            console.log("Urun id => ",urunid);
+            var productName = document.getElementById("productname");
+            var productCode = document.getElementById("productcode");
+            var productPrice = document.getElementById("productprice");
+            var productDescription = document.getElementById("floatingTextarea2");
+
+            $.ajax({
+              url: `http://192.168.1.2:4536/products/${urunid}`,
+              method: "GET",
+              success: successCallback,
+              error: errorCallback,
+            });
+
+
+            function successCallback(res) {
+
+              var data = res.data
+              console.log(data);
+              productName.value = data.title;
+              productCode.value = data.code;
+              productPrice.value = data.price;
+              productDescription.innerText = data.description
+              var size = data.size.split(",");
+
+              size = JSON.parse(size)
+              size.forEach(el => {
+                const olusturspan = document.createElement("span");
+                olusturspan.className = "badge rounded-pill text-bg-secondary";
+                olusturspan.innerHTML = el
+                document.getElementById("list").appendChild(olusturspan);
+                const olusturbutton = document.createElement("button");
+                olusturbutton.className = "btn-close btn-close-white";
+                olusturbutton.onclick = function(){
+                  document.getElementById("list").removeChild(olusturspan);
+                }
+                olusturspan.appendChild(olusturbutton);
+              });
+
+
+            };
+
+            function errorCallback(err) {
+             console.log(err)
+            }
+
+
+           function guncelle() {
+            productCode.value = productCode.value;
+            console.log(productCode.value)
+            $.ajax({
+                url: "http://192.168.1.2:4536/products",
+                method: "PUT",
+                success: (res) => {
+                  console.log(res.data)
+                },
+                error: (err) => {
+                  console.log(err);
+                }
+              });
+              console.log(res.data)
+           }
     </script>
   </body>
 </html>

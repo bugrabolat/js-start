@@ -22,6 +22,9 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Urun ekle</title>
     <style>
       nav {
@@ -79,13 +82,13 @@
       .btn {
         margin-left: 10px;
       }
-      span{
+      span {
         margin-left: 10px;
       }
-      li a{
+      li a {
         color: black;
       }
-      li a:hover{
+      li a:hover {
         color: gray;
       }
     </style>
@@ -131,7 +134,15 @@
         </div>
       </div>
       <div class="container col-6 card">
-        <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <div
+          style="
+            --bs-breadcrumb-divider: url(
+              &#34;data:image/svg + xml,
+              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+            );
+          "
+          aria-label="breadcrumb"
+        >
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
             <li class="breadcrumb-item"><a href="#">Ürün listesi</a></li>
@@ -140,34 +151,38 @@
         </div>
         <div class="row">
           <div class="col-6">
-        <h5>Resim yükle</h5>
-        <input type="file" />
-      </div>
-      <div class="col-6">
-        <h5>Ürün ismi</h5>
-        <input type="text" placeholder="Ürün ismi" />
-      </div>
-      <div class="col-6">
-        <h5>Ürün kodu</h5>
-        <input type="text" placeholder="Ürün kodu" />
-      </div>
-      <div class="col-6" style="padding-right: 30px;">
-        <h5>Ürün bedenleri</h5>
-          <input
-            type="text"
-            placeholder="Ürün Bedeni"
-            id="urun-beden"
-            onkeypress="onBlurBeden(event)"
-          />
+            <h5>Resim yükle</h5>
+            <input type="file" />
+          </div>
+          <div class="col-6">
+            <h5>Ürün ismi</h5>
+            <input type="text" placeholder="Ürün ismi" id="product-name" />
+          </div>
+          <div class="col-6">
+            <h5>Ürün kodu</h5>
+            <input type="text" placeholder="Ürün kodu" id="product-code" />
+          </div>
+          <div class="col-6" style="padding-right: 30px">
+            <h5>Ürün fiyatı</h5>
+            <input type="text" id="product-price" placeholder="Ürün Fiyatı" />
+          </div>
+          <div class="col-6">
+            <h5>Ürün bedenleri</h5>
+            <input
+              type="text"
+              placeholder="Ürün Bedeni"
+              id="urun-beden"
+              onkeypress="onBlurBeden(event)"
+            />
+          </div>
+          <div class="col-6">
+            <h5>Ürün Adeti</h5>
+            <input type="text" id="product-stock" placeholder="Ürün Fiyatı" />
+          </div>
+          <div class="col-6">
+            <td><ul id="list"></ul></td>
+          </div>
         </div>
-        <div class="col-6">
-          <h5>Ürün fiyatı</h5>
-          <input type="text" placeholder="Ürün Fiyatı" />
-        </div>
-        <div class="col-6">
-        <td><ul id="list"></ul></td>
-      </div>
-      </div>
         <h5>Ürün açıklama</h5>
         <div class="form-floating">
           <textarea
@@ -180,12 +195,30 @@
         </div>
         <div class="button-section row">
           <button class="btn btn-danger col-1">Sil</button>
-          <button class="btn btn-success col-2">Yükle</button>
+          <button class="btn btn-success col-2" onclick="uploadOnClick()">
+            Yükle
+          </button>
         </div>
       </div>
     </div>
     <script>
       var bedenValue = document.getElementById("urun-beden");
+      var productprice = document.getElementById("product-price");
+      var productname = document.getElementById("product-name");
+      var productstock = document.getElementById("product-stock");
+      var productcode = document.getElementById("product-code");
+      var productdescription = document.getElementById("floatingTextarea2");
+
+      var urun = {
+        photo: "bugra.png",
+        title: null,
+        description: null,
+        price: null,
+        stock: null,
+        code: null,
+        size: [],
+      };
+
       function onBlurBeden(e) {
         if (e.keyCode == 13) {
           const olusturspan = document.createElement("span");
@@ -194,11 +227,46 @@
           document.getElementById("list").appendChild(olusturspan);
           const olusturbutton = document.createElement("button");
           olusturbutton.className = "btn-close btn-close-white";
-          olusturbutton.onclick = function(){
+          olusturbutton.onclick = function () {
             document.getElementById("list").removeChild(olusturspan);
-          }
+          };
           olusturspan.appendChild(olusturbutton);
+          if (bedenValue.value != "") {
+            urun.size.push(bedenValue.value);
+          } else {
+            alert("lutfen beden giriniz.");
+          }
           bedenValue.value = "";
+        }
+      }
+      function uploadOnClick() {
+        if (
+          productname.value != "" &&
+          productprice.value != "" &&
+          productstock.value != "" &&
+          productcode.value != "" &&
+          urun.size.length != 0 &&
+          productdescription.value != ""
+        ) {
+          urun.price = productprice.value;
+          urun.title = productname.value;
+          urun.stock = productstock.value;
+          urun.code = productcode.value;
+          urun.description = productdescription.value;
+          urun.size=JSON.stringify(urun.size)
+          $.ajax({
+          url: "http://192.168.1.2:4536/products",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(urun),
+          success: {
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+        } else {
+          alert("boş alan bırakmayınız");
         }
       }
     </script>

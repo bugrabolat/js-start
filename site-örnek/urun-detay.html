@@ -274,7 +274,8 @@
       <h6>Yorumlar</h6>
       <hr />
       <div class="first-comment">
-        <div class="list-group" id="commentList"></div>
+        <div class="list-group" id="commentList" style="    max-height: 357px;
+        overflow: auto;"></div>
         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
           data-bs-whatever="@getbootstrap" style="margin-top: 30px;">Yorum Ekle</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -369,7 +370,7 @@
           star: 4
         };
         $.ajax({
-          url: "http://192.168.1.2:3333/comments",
+          url: "http://192.168.1.2:4536/comments",
           method: "POST",
           contentType: "application/json",
           data: JSON.stringify(data),
@@ -407,7 +408,7 @@
       window.onload = function () {
         var urunid = location.search.slice(1).split("=")[1];
         $.ajax({
-          url: "http://192.168.1.2:3333/comments/" + urunid,
+          url: "http://192.168.1.2:4536/comments/" + urunid,
           method: "GET",
           success: successCallback,
           error: errorCallback
@@ -420,7 +421,7 @@
 
             var commentsListDOM = document.getElementById("commentList");
             comments.forEach(el => {
-              var coment = document.createRange().createContextualFragment(`<a href="#" onclick="deleteComment(${el.id})" class="list-group-item list-group-item-action disabled">
+              var coment = document.createRange().createContextualFragment(`<a href="#" onclick="deleteComment(${el.id})" class="list-group-item list-group-item-action disabled" style="display:block">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">${el.title}</h5>
               <small class="text-muted">21.05.2022</small>

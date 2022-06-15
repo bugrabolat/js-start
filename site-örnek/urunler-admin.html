@@ -22,6 +22,12 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Admin paneli Ürünşer sayfası</title>
     <style>
       nav {
@@ -70,10 +76,10 @@
       #add-item {
         margin-bottom: 30px;
       }
-      li a{
+      li a {
         color: black;
       }
-      li a:hover{
+      li a:hover {
         color: gray;
       }
     </style>
@@ -104,7 +110,7 @@
             class="list-group-item list-group-item-action"
             aria-current="true"
           >
-          <i class="fa-solid fa-users"></i> Kullanıcılar
+            <i class="fa-solid fa-users"></i> Kullanıcılar
           </a>
           <a
             href="admin-paneli.html"
@@ -118,99 +124,77 @@
           >
         </div>
       </div>
-      <div class="container col-6">
+      <div class="container col-6" id="container">
         <h5>Ürünler Listesi</h5>
         <a href="urun-ekle-admin.html"
           ><button class="btn btn-primary" id="add-item">Ürün ekle</button></a
         >
-        <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <div
+          style="
+            --bs-breadcrumb-divider: url(
+              &#34;data:image/svg + xml,
+              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+            );
+          "
+          aria-label="breadcrumb"
+        >
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Ürünler</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ürün listesi</li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Ürün listesi
+            </li>
           </ol>
         </div>
-        <table class="table table-bordered">
+        <table class="table table-bordered"  id="table">
           <thead>
-            <tr>
-              <th scope="col">Foto</th>
-              <th scope="col">ürün ismi</th>
-              <th scope="col">Ürün kodu</th>
-              <th scope="col">Stok durumu</th>
-              <th scope="col">Fiyatı</th>
-              <th scope="col">Güncelle</th>
-              <th scope="col">Sil</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><img src="img/şapka.jpg" alt="" /></th>
-              <td>Bayan şapka</td>
-              <td>v123-321</td>
-              <td>
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                </div>
-              </td>
-              <td>1.199,00 TL</td>
-              <td>
-                <a href="urun-guncelle-admin.html"
-                  ><button class="btn btn-primary">Güncelle</button></a
-                >
-              </td>
-              <td><button class="btn btn-danger">Sil</button></td>
-            </tr>
-            <tr>
-              <th scope="row"><img src="img/ayakkabı.jpeg" alt="" /></th>
-              <td>Spor ayakkabı</td>
-              <td>v123-354</td>
-              <td>
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                </div>
-              </td>
-              <td>1.539,00 TL</td>
-              <td>
-                <a href="urun-guncelle-admin.html"
-                  ><button class="btn btn-primary">Güncelle</button></a
-                >
-              </td>
-              <td><button class="btn btn-danger">Sil</button></td>
-            </tr>
-            <tr>
-              <th scope="row"><img src="img/elbise-resmi.jpg" alt="" /></th>
-              <td>Elbise</td>
-              <td>v123-121</td>
-              <td>
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                </div>
-              </td>
-              <td>3.499,00 TL</td>
-              <td>
-                <a href="urun-guncelle-admin.html"
-                  ><button class="btn btn-primary">Güncelle</button></a
-                >
-              </td>
-              <td><button class="btn btn-danger">Sil</button></td>
-            </tr>
-          </tbody>
-        </table>
+          <tr style="text-align: center;">
+            <th scope="col">Foto</th>
+            <th scope="col">ürün ismi</th>
+            <th scope="col">Ürün kodu</th>
+            <th scope="col">Stok durumu</th>
+            <th scope="col">Fiyatı</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
       </div>
     </div>
+    <script>
+      var tbody = document.getElementById("tbody")
+      $.ajax({
+        url: "http://192.168.1.2:4536/products",
+        method: "GET",
+        success: successCallback,
+        error: errorCallback,
+      });
+      function successCallback(res) {
+        console.log(res.data);
+        data = res.data;
+        data.forEach((el) => {
+          
+          var product =`
+            <tr style="width:50px; text-align:center;">
+              <th scope="row"><img src="img/şapka.jpg" alt="" /></th>
+              <td id="product-name">${el.title}</td>
+              <td id="product-code">${el.code}</td>
+              <td id="product-stock">${el.stock}</td>
+              <td id="product-price">${el.price}</td>
+              <td>
+                <a href="urun-guncelle-admin.html?urunid=${el.id}"
+                  ><button class="btn btn-primary">Güncelle</button></a
+                >
+              </td>
+              <td><button class="btn btn-danger">Sil</button></td>
+            </tr>
+             `;
+             tbody.innerHTML += product;
+        });
+      }
+      function errorCallback() {}
+    </script>
   </body>
 </html>
