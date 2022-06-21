@@ -28,6 +28,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Admin paneli Ürünşer sayfası</title>
     <style>
       nav {
@@ -145,28 +146,27 @@
             </li>
           </ol>
         </div>
-        <table class="table table-bordered"  id="table">
+        <table class="table table-bordered" id="table">
           <thead>
-          <tr style="text-align: center;">
-            <th scope="col">Foto</th>
-            <th scope="col">ürün ismi</th>
-            <th scope="col">Ürün kodu</th>
-            <th scope="col">Stok durumu</th>
-            <th scope="col">Fiyatı</th>
-            <th scope="col">Güncelle</th>
-            <th scope="col">Sil</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-
-        </tbody>
-      </table>
+            <tr style="text-align: center">
+              <th scope="col">Foto</th>
+              <th scope="col">ürün ismi</th>
+              <th scope="col">Ürün kodu</th>
+              <th scope="col">Stok durumu</th>
+              <th scope="col">Fiyatı</th>
+              <th scope="col">Güncelle</th>
+              <th scope="col">Sil</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
       </div>
     </div>
     <script>
-      var tbody = document.getElementById("tbody")
+      var tbody = document.getElementById("tbody");
+      var productİtem;
       $.ajax({
-        url: "http://192.168.1.2:4536/products",
+        url: "http://192.168.1.2:4537/products",
         method: "GET",
         success: successCallback,
         error: errorCallback,
@@ -175,9 +175,8 @@
         console.log(res.data);
         data = res.data;
         data.forEach((el) => {
-          
-          var product =`
-            <tr style="width:50px; text-align:center;">
+          var product = `
+            <tr style="width:50px; text-align:center;" id="product-${el.id}">
               <th scope="row"><img src="img/şapka.jpg" alt="" /></th>
               <td id="product-name">${el.title}</td>
               <td id="product-code">${el.code}</td>
@@ -188,13 +187,50 @@
                   ><button class="btn btn-primary">Güncelle</button></a
                 >
               </td>
-              <td><button class="btn btn-danger">Sil</button></td>
+              <td><button class="btn btn-danger" onClick="remove(${el.id})">Sil</button></td>
             </tr>
              `;
-             tbody.innerHTML += product;
+          tbody.innerHTML += product;
+          productİtem = product;
         });
       }
       function errorCallback() {}
+      function remove(id) {
+        Swal.fire({
+          title: "Emin misiniz ?",
+          text: "Ürünü Silmek istediğinizden Emin misiniz ?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Evet!",
+          cancelButtonText: "Vazgeç"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Ürün Başarılı bir şekilde silindi.", "success");
+            $.ajax({
+          url: `http://192.168.1.2:4537/products/${id}`,
+          method: "DELETE",
+          success: (res) => {
+            if (res.status == "ok") {
+              $(`#product-${id}`).hide("slow");
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: res.message,
+                footer: '<a href="">Why do I have this issue?</a>',
+              });
+            }
+          },
+          error: function (err) {
+            console.log(err);
+          },
+        });
+          }
+        });
+       
+      }
     </script>
   </body>
 </html>

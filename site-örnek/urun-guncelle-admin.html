@@ -28,6 +28,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Urun ekle</title>
     <style>
       nav {
@@ -170,6 +171,10 @@
             <h5>Ürün kodu</h5>
             <input type="text" placeholder="Ürün kodu" id="productcode" />
           </div>
+          <div class="col-6">
+            <h5>Ürün Adeti</h5>
+            <input type="text" id="product-stock" placeholder="Ürün Fiyatı" />
+          </div>
           <div class="col-6" style="padding-right: 30px">
             <h5>Ürün bedenleri</h5>
             <input
@@ -208,84 +213,130 @@
       </div>
     </div>
     <script>
-            var bedenValue = document.getElementById("urun-beden");
-            function onBlurBeden(e) {
-              if (e.keyCode == 13) {
-                const olusturspan = document.createElement("span");
-                olusturspan.className = "badge rounded-pill text-bg-secondary";
-                olusturspan.innerHTML = bedenValue.value;
-                document.getElementById("list").appendChild(olusturspan);
-                const olusturbutton = document.createElement("button");
-                olusturbutton.className = "btn-close btn-close-white";
-                olusturbutton.onclick = function(){
-                  document.getElementById("list").removeChild(olusturspan);
-                }
-                olusturspan.appendChild(olusturbutton);
-                bedenValue.value = "";
+      var urun = {
+        id: location.search.slice(1).split("=")[1],
+        title: null,
+        description: null,
+        code: null,
+        price: null,
+        size: null,
+        stock: null,
+      };
+
+      var productName = null;
+      var productCode = null;
+      var productPrice = null;
+      var productDescription = null;
+      var bedenValue = null;
+      var productStock = null;
+
+      window.onload = function () {
+
+        bedenValue = document.getElementById("urun-beden");
+        productName = document.getElementById("productname");
+        productCode = document.getElementById("productcode");
+        productPrice = document.getElementById("productprice");
+        productDescription = document.getElementById("floatingTextarea2");
+        productStock = document.getElementById("product-stock");
+
+        $.ajax({
+          url: `http://192.168.1.2:4537/products/${urun.id}`,
+          method: "GET",
+          success: (res) => {
+            urun = res.data;
+            productName.value = urun.title;
+            productCode.value = urun.code;
+            productPrice.value = urun.price;
+            productDescription.innerText = urun.description;
+            productStock.value = urun.stock
+            urun.size = JSON.parse(urun.size);
+            console.log("URUN in Get => ", urun);
+
+            for (let i = 0; i < urun.size.length; i++) {
+              console.log(typeof urun.size[i]);
+              if (typeof urun.size[i] !==  "string") {
+              console.log(typeof urun.size[i]);
+              urun.size[i] = String(urun.size[i]);
+                console.log(typeof urun.size[i]);
               }
             }
-            var urunid = location.search.slice(1).split("=")[1];
-            console.log("Urun id => ",urunid);
-            var productName = document.getElementById("productname");
-            var productCode = document.getElementById("productcode");
-            var productPrice = document.getElementById("productprice");
-            var productDescription = document.getElementById("floatingTextarea2");
-
-            $.ajax({
-              url: `http://192.168.1.2:4536/products/${urunid}`,
-              method: "GET",
-              success: successCallback,
-              error: errorCallback,
+            urun.size.forEach((el) => {              
+              const olusturspan = document.createElement("span");
+              olusturspan.className = "badge rounded-pill text-bg-secondary";
+              olusturspan.ariaValueText = el;
+              olusturspan.innerHTML = el;
+              document.getElementById("list").appendChild(olusturspan);
+              const olusturbutton = document.createElement("button");
+              olusturbutton.className = "btn-close btn-close-white";
+              olusturbutton.onclick = function () {
+                document.getElementById("list").removeChild(olusturspan);
+                urun.size.splice(urun.size.indexOf(olusturspan.ariaValueText), 1);
+              };
+              olusturspan.appendChild(olusturbutton);
             });
+          },
+          error: function (err) {
+            console.log(err);
+          },
+        });
 
+      };
 
-            function successCallback(res) {
+      function onBlurBeden(e) {
+        if (e.keyCode == 13) {
+          const olusturspan = document.createElement("span");
+          olusturspan.className = "badge rounded-pill text-bg-secondary";
+          olusturspan.innerHTML = bedenValue.value;
+          olusturspan.ariaValueText = bedenValue.value;
+          document.getElementById("list").appendChild(olusturspan);
+          const olusturbutton = document.createElement("button");
+          olusturbutton.className = "btn-close btn-close-white";
+          olusturbutton.onclick = function () {
+            document.getElementById("list").removeChild(olusturspan);
+                urun.size.splice(urun.size.indexOf(olusturspan.ariaValueText), 1);
+          };
+          olusturspan.appendChild(olusturbutton);
+          urun.size.push(bedenValue.value);
+          bedenValue.value = "";
+        }
+      }
+      
 
-              var data = res.data
-              console.log(data);
-              productName.value = data.title;
-              productCode.value = data.code;
-              productPrice.value = data.price;
-              productDescription.innerText = data.description
-              var size = data.size.split(",");
+      function guncelle() {
+        console.log("URUN güncelle başı", urun);
+        urun.code = productCode.value;
+        urun.title = productName.value;
+        urun.price = productPrice.value;
+        urun.description = productDescription.value;
+        urun.stock = productStock.value;
+        urun.size = JSON.stringify(urun.size);
 
-              size = JSON.parse(size)
-              size.forEach(el => {
-                const olusturspan = document.createElement("span");
-                olusturspan.className = "badge rounded-pill text-bg-secondary";
-                olusturspan.innerHTML = el
-                document.getElementById("list").appendChild(olusturspan);
-                const olusturbutton = document.createElement("button");
-                olusturbutton.className = "btn-close btn-close-white";
-                olusturbutton.onclick = function(){
-                  document.getElementById("list").removeChild(olusturspan);
-                }
-                olusturspan.appendChild(olusturbutton);
-              });
+        $.ajax({
+          url: "http://192.168.1.2:4537/products",
+          method: "PUT",
+          contentType: "application/json",
+          data: JSON.stringify(urun),
+          success: (res) => {
+            if(res.status === "ok"){
+            Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Ürün Başarılı bir şekilde Güncellendi",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
 
+        console.log("URUN güncelle sonu", urun);
+        urun.size = JSON.parse(urun.size);
 
-            };
+      }
 
-            function errorCallback(err) {
-             console.log(err)
-            }
-
-
-           function guncelle() {
-            productCode.value = productCode.value;
-            console.log(productCode.value)
-            $.ajax({
-                url: "http://192.168.1.2:4536/products",
-                method: "PUT",
-                success: (res) => {
-                  console.log(res.data)
-                },
-                error: (err) => {
-                  console.log(err);
-                }
-              });
-              console.log(res.data)
-           }
     </script>
   </body>
 </html>

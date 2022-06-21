@@ -22,9 +22,13 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Urun ekle</title>
     <style>
       nav {
@@ -246,25 +250,42 @@
           productstock.value != "" &&
           productcode.value != "" &&
           urun.size.length != 0 &&
-          productdescription.value != ""
+          productdescription.value != "" &&
+          productprice.value.length < 11
         ) {
           urun.price = productprice.value;
           urun.title = productname.value;
           urun.stock = productstock.value;
           urun.code = productcode.value;
           urun.description = productdescription.value;
-          urun.size=JSON.stringify(urun.size)
+          urun.size = JSON.stringify(urun.size);
+
           $.ajax({
-          url: "http://192.168.1.2:4536/products",
-          method: "POST",
-          contentType: "application/json",
-          data: JSON.stringify(urun),
-          success: {
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        });
+            url: "http://192.168.1.2:4537/products",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(urun),
+            success: (res) => {
+              console.log(res);
+              if (res.status === "ok") {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Ürün Başarılı bir şekilde eklendi",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                productprice.value = "";
+                productname.value = "";
+                productstock.value = "";
+                productcode.value = "";
+                productdescription.value = "";
+              }
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });
         } else {
           alert("boş alan bırakmayınız");
         }
