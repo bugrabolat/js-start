@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="urun-detay.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="list-group" id="commentList" style="    max-height: 357px;
+  overflow: auto;"></div>
+  <div class="list-group" id="productList2" style="    max-height: 357px;
+  overflow: auto;"></div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./services/comments.service.js"></script>
+  <script src="./services/products.service.js"></script>
+  <script>
+    window.axios = axios;
+    const commentsService = new CommentsService();
+    const productsService = new ProductsService();
+
+
+    window.onload = async function () {
+
+      productsService.getProducts(35).then(res => {
+        var productsListDOM = document.getElementById("productList2");
+        console.log(res.data)
+           var product = `<br/> <div class="basket-items row">
+           <div class="col-4">
+            <div class="col-6">
+              <a href="urun-detay.html">
+                <h5>${res.data.title}</h5>
+              </a>
+              <hr>
+              <div class="basket-info">
+                <span>${res.data.star}</span>
+                <p id="basket-itemprice">${res.data.price}</p>
+                <p>Beden: ${res.data.description}</p>
+            </div>
+          </div>`
+          productsListDOM.innerHTML += product;
+      });
+
+      commentsService.getComments(35).then(res => {
+        var commentsListDOM = document.getElementById("commentList");
+        res.data.forEach(el => {
+
+          var coment = document.createRange().createContextualFragment(`<a href="#" onclick="deleteComment(${el.id})" class="list-group-item list-group-item-action disabled" style="display:block">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">${el.title}</h5>
+              <small class="text-muted">21.05.2022</small>
+            </div>
+            <p class="mb-1">${el.description}</p>
+            <small class="text-muted">
+              <div class="rating">
+                <span class="fa fa-star ${el.star > 4 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 3 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 2 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 1 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 0 ? 'checked' : ''}"></span>
+              </div>
+            </small>
+          </a>`);
+          commentsListDOM.appendChild(coment);
+        });
+      });
+
+
+      // console.log("then sonras");
+
+
+      var res = await commentsService.addComments({
+        description: "class açıklama",
+        p_id: 36,
+        star: 5,
+        title: "class title"
+      });
+      res.data.forEach();
+
+      // console.log(res);
+
+      // console.log("await sonras");
+    }
+
+
+
+  </script>
+</body>
+
+</html>

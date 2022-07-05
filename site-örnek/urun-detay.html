@@ -54,17 +54,18 @@
               <a class="nav-link" href="sepet.html">Sepetim</a>
             </li>
           </ul>
+
           <button type="button" class="btn btn-outline-light position-relative"
-            style="margin-right: 10px; border-radius: 50%; border: none;" onclick="location='favori.html'"><i
-              class="fas fa-heart"></i></button>
+            style="margin-right: 10px; border-radius: 50%; border: none;" onclick="location='favori.html'">
+            <i class="fas fa-heart"></i>
+          </button>
+
           <button type="button" class="btn btn-outline-light position-relative"
             style="margin-right: 50px; border-radius: 50%; border: none;" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="sepetAc()">
             <i class="fa fa-shopping-cart"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              2
-              <span class="visually-hidden">unread messages</span>
-            </span>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><span id="cart-span-adet"></span><span
+                class="visually-hidden">unread messages</span></span>
           </button>
         </div>
       </div>
@@ -82,7 +83,7 @@
         </div>
 
         <div class="basket-buttons">
-          <button class="btn btn-secondary">Sepeti Temizle</button>
+          <button class="btn btn-secondary" onclick="clearLocal()">Sepeti Temizle</button>
           <button class="btn btn-success" onclick="location='sepet.html'">Alışverişi Tamamla</button>
         </div>
       </div>
@@ -142,11 +143,11 @@
           </div>
           <p id="price"><b>1.199,00 TL</b></p>
           <div class="rating">
-            <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
-            <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
-            <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
-            <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
-            <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
+            <input type="radio" name="rating" value="5" id="5" onclick="rate(this)"/><label for="5">☆</label>
+            <input type="radio" name="rating" value="4" id="4" onclick="rate(this)"/><label for="4">☆</label>
+            <input type="radio" name="rating" value="3" id="3" onclick="rate(this)"/><label for="3">☆</label>
+            <input type="radio" name="rating" value="2" id="2" onclick="rate(this)"/><label for="2">☆</label>
+            <input type="radio" name="rating" value="1" id="1" onclick="rate(this)"/><label for="1">☆</label>
             <a href="" style="font-size: 10px">Yorum Ekle</a>
           </div>
 
@@ -173,15 +174,18 @@
               </svg>
             </a>
           </div>
-          <a href="" id="fav-btn">
-            <i class="far fa-heart"></i>
-            <!-- <i class="fas fa-heart"></i>  favorilere eklenince buton bu olucak-->
-          </a>
+          <button style="background: transparent; border: 0;" id="fav-btn" onclick="favOnClick()">
+            <a>
+              <i class="far fa-heart" id="fav-icon-a"></i>
+              <!-- <i class="fas fa-heart"></i>  favorilere eklenince buton bu olucak-->
+            </a>
+          </button>
         </div>
         <div class="adet">
-          <a href="" id="plus-btn"><b>+</b></a>
-          <input type="text" disabled style="width: 100px; height: 40px; text-align: center" value="0" />
-          <a href="" id="reduce-btn"><b>-</b></a>
+          <button id="plus-btn" style="border: none; background: transparent;" onclick="plus()"><b>+</b></button>
+          <input type="number" disabled style="width: 100px; height: 40px; text-align: center" value="1" min="1"
+            id="counter" onclick="productCounter()" />
+          <button id="reduce-btn" style="border: none; background: transparent;" onclick="reduce()"><b>-</b></button>
           <button class="btn btn-outline-dark" id="sepet-btn" onclick="addSepet()">
             Sepete Ekle
           </button>
@@ -255,11 +259,11 @@
                     <label for="recipient-name" class="col-form-label" style="padding-right: 10px;">Puanlama:</label>
                     <small class="text-muted">
                       <div class="rating">
-                        <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
-                        <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
-                        <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
-                        <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
-                        <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
+                        <input type="radio" name="rating" value="5" id="a5" onclick="rate(this)"/><label for="a5">☆</label>
+                        <input type="radio" name="rating" value="4" id="a4" onclick="rate(this)"/><label for="a4">☆</label>
+                        <input type="radio" name="rating" value="3" id="a3" onclick="rate(this)"/><label for="a3">☆</label>
+                        <input type="radio" name="rating" value="2" id="a2" onclick="rate(this)"/><label for="a2">☆</label>
+                        <input type="radio" name="rating" value="1" id="a1" onclick="rate(this)"/><label for="a1">☆</label>
                       </div>
                     </small>
                   </div>
@@ -316,45 +320,100 @@
       </div>
     </footer>
     <script>
-      var productTitle = document.getElementById("product-title");
-      var productCode = document.getElementById("seri-no");
-      var productStock = document.getElementById("stock-value");
-      var productPrice = document.getElementById("price");
-      var sizeGroup = document.getElementById("size-group");
-      var productDescription = document.getElementById("product-description");
+      var product = {
+        code: null,
+        description: null,
+        id: null,
+        photo: null,
+        price: null,
+        size: null,
+        star: null,
+        stock: null,
+        title: null,
+      };
+
+      function saveBasket(data) {
+        localStorage.setItem("sepet", JSON.stringify(data));
+      }
+
+      function saveFav(data) {
+        localStorage.setItem("fav", JSON.stringify(data));
+      }
+
+
+      function getBasket() {
+        var data = localStorage.getItem("sepet");
+        console.log(data);
+        if (data !== null && data !== "") {
+          console.log("if içi");
+          return JSON.parse(data);
+        }
+        else {
+          console.log("else içi");
+          saveBasket([]);
+          return [];
+        }
+      }
+
+      function getFav() {
+        var data = localStorage.getItem("fav");
+        console.log(data);
+        if (data !== null && data !== "") {
+          console.log("if içi");
+          return JSON.parse(data);
+        }
+        else {
+          console.log("else içi");
+          saveFav([]);
+          return [];
+        }
+      }
+
+      var productDOM = {
+        code: document.getElementById("seri-no"),
+        description: document.getElementById("product-description"),
+        price: document.getElementById("price"),
+        size: document.getElementById("size-group"),
+        star: null,
+        stock: document.getElementById("stock-value"),
+        title: document.getElementById("product-title"),
+      };
+
       var sepetMenu = document.getElementById("canvas-body");
-      var localSepet = localStorage.getItem("sepet");
+      var localSepet = getBasket();
+      var localFav = getFav();
+      var plusBtn = document.getElementById("plus-btn");
+      var reduceBtn = document.getElementById("reduce-btn");
+      var inputCounter = document.getElementById("counter");
+      var basketCounter = document.getElementById("input-counter");
+      const urunid = location.search.slice(1).split("=")[1];
+      var fav_a = document.getElementById("fav-icon-a");
+      var cart_adet = document.getElementById("cart-span-adet")
+        cart_adet.outerText += localSepet.length;
       var comments, product;
-
-      if (localSepet !== null && localSepet !== "") {
-        localSepet = JSON.parse(localSepet)
-        localSepet.forEach(el => {
-          var sepetUrun = `<div class="basket-items row">
-          <div class="col-4">
-            <button class="close-button">
-              <p>X</p>
-            </button>
-            <a href="urun-detay.html">
-              <img src="img/şapka.jpg" class="img-thumbnail" alt="..." id="mini-photo2" />
-            </a>
-          </div>
-          <div class="col-6">
-            <a href="urun-detay.html">
-              <h5>${el.title}</h5>
-            </a>
-            <hr>
-            <div class="basket-info">
-              <span>1X</span>
-              <p id="basket-itemprice">${el.price}</p>
-            </div>
-          </div>
-        </div>`;
-          sepetMenu.innerHTML += sepetUrun;
-        })
+      var selectSize;
+      var rateStar;
 
 
-      } else {
-        localSepet = []
+
+      function basketPlus2(id) {
+        var itemIndex = localSepet.findIndex(x => x.id === id);
+        localSepet[itemIndex].adet++;
+        document.getElementById("input-counter-" + id).value = localSepet[itemIndex].adet;
+        saveBasket(localSepet);
+      }
+
+      function basketReduce2(id) {
+        var itemIndex = localSepet.findIndex(x => x.id === id);
+        if (localSepet[itemIndex].adet >= !0) {
+          localSepet[itemIndex].adet--;
+          document.getElementById("input-counter-" + id).value = localSepet[itemIndex].adet;
+          saveBasket(localSepet);
+        } if (document.getElementById("input-counter-" + id).value < 1) {
+          localSepet.splice(itemIndex, 1);
+          saveBasket(localSepet);
+          location.reload();
+        }
       }
 
       function sendComment() {
@@ -362,14 +421,24 @@
           p_id: location.search.slice(1).split("=")[1],
           title: document.getElementById("commentTitle").value,
           description: document.getElementById("commentDescription").value,
-          star: 4
+          star: rateStar
         };
+
         $.ajax({
           url: "http://192.168.1.2:4537/comments",
           method: "POST",
           contentType: "application/json",
           data: JSON.stringify(data),
           success: function (res) {
+            var oyla;
+          for (let i = 0; i < 5; i++) {
+            oyla += [i];
+            oyla[i] += `<span class="fa fa-star ${i <= rateStar ? 'checked' : ''}"></span>` 
+            
+            
+          }
+             console.log(oyla)
+
             if (res.status === "ok") {
               var commentsListDOM = document.getElementById("commentList");
               var coment = document.createRange().createContextualFragment(`<a href="#"  class="list-group-item list-group-item-action disabled">
@@ -379,16 +448,16 @@
             </div>
             <p class="mb-1">${data.description}</p>
             <small class="text-muted">
+            </small>
+            <small class="text-muted">
               <div class="rating">
-                <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
-                <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
-                <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
-                <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
-                <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
+               ${oyla}
               </div>
             </small>
-          </a>`);
-              commentsListDOM.appendChild(coment);
+          </a>`
+          );
+          commentsListDOM.appendChild(coment);
+         
             }
           },
           error: (err) => {
@@ -401,7 +470,7 @@
       }
 
       window.onload = function () {
-        var urunid = location.search.slice(1).split("=")[1];
+
         $.ajax({
           url: "http://192.168.1.2:4537/comments/" + urunid,
           method: "GET",
@@ -416,6 +485,7 @@
 
             var commentsListDOM = document.getElementById("commentList");
             comments.forEach(el => {
+              
               var coment = document.createRange().createContextualFragment(`<a href="#" onclick="deleteComment(${el.id})" class="list-group-item list-group-item-action disabled" style="display:block">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">${el.title}</h5>
@@ -424,11 +494,11 @@
             <p class="mb-1">${el.description}</p>
             <small class="text-muted">
               <div class="rating">
-                <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
-                <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
-                <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
-                <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
-                <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
+                <span class="fa fa-star ${el.star > 4 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 3 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 2 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 1 ? 'checked' : ''}"></span>
+                <span class="fa fa-star ${el.star > 0 ? 'checked' : ''}"></span>
               </div>
             </small>
           </a>`);
@@ -451,43 +521,145 @@
           url: `http://192.168.1.2:4537/products/${urunid}`,
           method: "GET",
           success: (res) => {
-            data = res.data
-            console.log(res.data)
-            productTitle.innerText = data.title;
-            productCode.innerText = data.code
-            productDescription.innerText = data.description
-            if (data.stock > 0) {
-              productStock.innerHTML = "Var"
-            } else {
-              productStock.innerHTML = "Yok";
-              productStock.style = "color: red;"
+            if (res.status === "ok") {
+              product = res.data;
+              productDOM.title.innerHTML = product.title;
+              productDOM.code.innerHTML = product.code;
+              productDOM.description.innerHTML = product.description;
+              productDOM.price.innerHTML = product.price;
+              product.size = JSON.parse(product.size);
+              console.log(product);
+
+              if (product.stock > 0) {
+                productDOM.stock.innerHTML = "Var"
+              } else {
+                productDOM.stock.innerHTML = "Yok";
+                productDOM.stock.style = "color: red;"
+              }
+              productDOM.price.innerText = product.price;
+              productDOM.price.style = "font-weight: bold;";
+              product.size.forEach(el => {
+                var box = `<input type="radio" class="btn-check" name="options-outlined" id="${el}" autocomplete="off" onClick="sizeSelected(${el})" /><label class="btn btn-outline-dark" for="${el}">${el}</label>`;
+                productDOM.size.innerHTML += box;
+              });
             }
-            productPrice.innerText = data.price;
-            productPrice.style = "font-weight: bold;"
-            size = data.size
-            Array.from(JSON.parse(size)).forEach(el => {
-              var box = `<input type="radio" class="btn-check" name="options-outlined" id="${el}" autocomplete="off" onclick="selectedSize(${el})" />
-              <label class="btn btn-outline-dark" for="${el}">${el}</label>`;
+            else {
+              alert(res.error);
+            }
 
-              sizeGroup.innerHTML += box;
 
-            });
-           
           },
           error: errorCallback
         });
-
       };
 
-       function selectedSize(el){
-        return el;
-       }
 
-      function addSepet() {
-        var sizeSelected = el;
+      function sizeSelected(el) {
+        selectSize = el
+      }
+
+      function sepeteAt() {
+        localSepet.push({
+          id: Number(localSepet.length),
+          urunid: Number(urunid),
+          title: product.title,
+          price: Number(product.price),
+          size: selectSize,
+          adet: Number(inputCounter.value)
+        });
         var sepetUrun = `<div class="basket-items row">
           <div class="col-4">
-            <button class="close-button">
+             <button class="close-button">
+               <p>X</p>
+             </button>
+             <a href="urun-detay.html">
+               <img src="img/şapka.jpg" class="img-thumbnail" alt="..." id="mini-photo2" />
+             </a>
+           </div>
+           <div class="col-6">
+             <a href="urun-detay.html">
+               <h5>${product.title}</h5>
+             </a>
+             <hr>
+             <div class="basket-info">
+               <span>1X</span>
+               <p id="basket-itemprice">${product.price}</p>
+               <p>Beden: ${selectSize}</p>
+               <div style="position: relative;left: 70px;bottom: 30px;">
+               <button  id="plus-btn" style="border: none; background: transparent;" onclick="basketPlus()"><b>+</b></button>
+           <input type="number" disabled style="width: 70px; height: 30px; text-align: center" value="${inputCounter.value}" id="counter" onclick="productCounter()"/>
+           <button  id="reduce-btn" style="border: none; background: transparent;" onclick="basketReduce()"><b>-</b></button>
+         </div>
+             </div>
+           </div>
+         </div>`;
+        sepetMenu.innerHTML += sepetUrun;
+        saveBasket(localSepet);
+      }
+
+      function addSepet() {
+        let urunler = [];
+
+        localSepet.forEach((el, i) => {
+          if (el.urunid == product.id) {
+            el.index = i;
+            urunler.push(el);
+          }
+        });
+
+        let urunIndex = localSepet.findIndex(item => {
+          return item.urunid == urunid
+        });
+
+        let sizeInfo = localSepet.findIndex(item => {
+          return item.size == selectSize;
+        });
+
+        if (selectSize != null) {
+          if (urunler.length > 1) {
+            let urunlerIndex = urunler.findIndex(el => {
+              return el.size == selectSize;
+            });
+
+            if (urunlerIndex !== -1) {
+              localSepet[urunler[urunlerIndex].index].adet += Number(inputCounter.value);
+              saveBasket(localSepet);
+            }
+            else {
+              sepeteAt();
+            }
+          }
+          else {
+            if (urunler.length < 1) {
+              sepeteAt();
+            }
+            else {
+              if (urunler[0].size == selectSize) {
+                localSepet[urunler[0].index].adet += Number(inputCounter.value);
+                saveBasket(localSepet);
+              }
+              else {
+                sepeteAt();
+              }
+            }
+          }
+        } else {
+          alert("hata")
+        }
+        location.reload();
+      }
+
+
+      function plus() {
+        ++inputCounter.value
+      }
+
+      function sepetAc() {
+        sepetMenu.innerHTML = "";
+        localSepet.forEach(el => {
+          var sepetUrun = `<div class="basket-items row" id="item-${el.id}">
+          <div class="col-4">
+            <button class="close-button" onclick="clearProduct(${el.id})">
               <p>X</p>
             </button>
             <a href="urun-detay.html">
@@ -496,30 +668,68 @@
           </div>
           <div class="col-6">
             <a href="urun-detay.html">
-              <h5>${productTitle.innerText}</h5>
+              <h5>${el.title}</h5>
             </a>
             <hr>
             <div class="basket-info">
               <span>1X</span>
-              <p id="basket-itemprice">${productPrice.innerText}</p>
-              <p>${sizeSelected}</p>
+              <p id="basket-itemprice">${el.price}</p>
+              <p>Beden: ${el.size}</p>
+              <div style="position: relative;left: 70px;bottom: 30px;">
+              <button  id="plus-btn" style="border: none; background: transparent;" onclick="basketPlus2(${el.id})"><b>+</b></button>
+          <input type="text" disabled style="width: 70px; height: 30px; text-align: center" value="${el.adet}" id="input-counter-${el.id}"/>
+          <button  id="reduce-btn" style="border: none; background: transparent;" onclick="basketReduce2(${el.id})"><b>-</b></button>
+        </div>
             </div>
           </div>
         </div>`;
-        sepetMenu.innerHTML += sepetUrun;
-
-        
-
-        localSepet.push({
-          title: productTitle.innerText,
-          price: productPrice.innerText,
-          size:  el
+          sepetMenu.innerHTML += sepetUrun;
         })
-        console.log(selectedSize())
-
-        localStorage.setItem("sepet", JSON.stringify(localSepet));
       }
 
+      function reduce() {
+        if (inputCounter.value >= 2) {
+          --inputCounter.value
+        }
+      }
+
+      function clearLocal() {
+        localStorage.clear()
+        location.reload()
+      }
+      function clearProduct(id) {
+        var itemIndex = localSepet.findIndex(x => x.id == id);
+        localSepet.splice(itemIndex, 1);
+        saveBasket(localSepet);
+        location.reload();
+      }
+
+      function favOnClick() {
+        var fav_id = localFav.findIndex(e => e.urunid == urunid);
+        if (fav_a.className != "fas fa-heart") {
+          fav_a.className = "fas fa-heart";
+          localFav.push({
+            title: product.title,
+            description: product.description,
+            urunid: product.id,
+          });
+          saveFav(localFav);
+        } else {
+          fav_a.className = "far fa-heart";
+          localFav.splice(fav_id,1);
+          saveFav(localFav);
+        }
+      }
+      var fav_id = localFav.findIndex(e => e.urunid == urunid);
+      console.log(fav_id)
+        if(fav_id != -1){
+        fav_a.className = "fas fa-heart";
+        }
+
+        function rate(el) {
+          rateStar = el.value;
+          console.log(rateStar)
+        }
     </script>
 </body>
 
